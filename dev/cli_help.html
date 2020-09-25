@@ -349,6 +349,7 @@
                                      [--greedy]
                                      [--connection-method {max,blend}] [-q]
                                      [--debug] [--log-stats]
+                                     [--shufflenetv2-no-pretrain]
                                      [--shufflenetv2k-input-conv2-stride SHUFFLENETV2K_INPUT_CONV2_STRIDE]
                                      [--shufflenetv2k-input-conv2-outchannels SHUFFLENETV2K_INPUT_CONV2_OUTCHANNELS]
                                      [--shufflenetv2k-stage4-dilation SHUFFLENETV2K_STAGE4_DILATION]
@@ -359,7 +360,6 @@
                                      [--resnet-input-conv2-stride RESNET_INPUT_CONV2_STRIDE]
                                      [--resnet-block5-dilation RESNET_BLOCK5_DILATION]
                                      [--resnet-remove-last-block]
-                                     [--shufflenetv2-no-pretrain]
                                      [--cf3-dropout CF3_DROPOUT]
                                      [--cf3-no-inplace-ops]
                                      [--checkpoint CHECKPOINT]
@@ -369,6 +369,9 @@
                                      [--no-download-progress]
                                      [--dense-coupling DENSE_COUPLING]
                                      [--head-consolidation {keep,create,filter_and_extend}]
+                                     [--save-all [SAVE_ALL]] [--show]
+                                     [--figure-width FIGURE_WIDTH]
+                                     [--image-dpi-factor IMAGE_DPI_FACTOR]
                                      [--show-box] [--show-joint-scales]
                                      [--show-joint-confidences]
                                      [--show-decoding-order]
@@ -380,7 +383,7 @@
                                      [--debug-cifdet-c] [--debug-cifdet-v]
                                      [--debug-caf-c] [--debug-caf-v]
                                      [--debug-indices DEBUG_INDICES [DEBUG_INDICES ...]]
-                                     [--debug-images] [--glob GLOB] [--show]
+                                     [--debug-images] [--glob GLOB]
                                      [--image-output [IMAGE_OUTPUT]]
                                      [--json-output [JSON_OUTPUT]]
                                      [--batch-size BATCH_SIZE]
@@ -389,8 +392,6 @@
                                      [--disable-cuda]
                                      [--line-width LINE_WIDTH]
                                      [--monocolor-connections]
-                                     [--figure-width FIGURE_WIDTH]
-                                     [--dpi-factor DPI_FACTOR]
                                      [images [images ...]]
 
 Predict poses for given images.
@@ -403,7 +404,6 @@ optional arguments:
   --version             show program&#39;s version number and exit
   --glob GLOB           glob expression for input images (for many images)
                         (default: None)
-  --show                show image of output overlay (default: False)
   --image-output [IMAGE_OUTPUT]
                         image output file or directory (default: None)
   --json-output [JSON_OUTPUT]
@@ -418,11 +418,6 @@ optional arguments:
   --line-width LINE_WIDTH
                         line width for skeleton (default: 6)
   --monocolor-connections
-  --figure-width FIGURE_WIDTH
-                        figure width (default: 10.0)
-  --dpi-factor DPI_FACTOR
-                        increase dpi of output image by this factor (default:
-                        1.0)
 
 decoder configuration:
   --decoder {cifdet,cifcaf} [{cifdet,cifcaf} ...]
@@ -456,6 +451,10 @@ logger:
   --debug               print debug messages (default: False)
   --log-stats           enable stats logging (default: False)
 
+ShuffleNetv2:
+  --shufflenetv2-no-pretrain
+                        use randomly initialized models (default: True)
+
 shufflenetv2k:
   --shufflenetv2k-input-conv2-stride SHUFFLENETV2K_INPUT_CONV2_STRIDE
                         stride of the optional 2nd input convolution (default:
@@ -482,10 +481,6 @@ ResNet:
   --resnet-remove-last-block
                         create a network without the last block (default:
                         False)
-
-ShuffleNetv2:
-  --shufflenetv2-no-pretrain
-                        use randomly initialized models (default: True)
 
 CompositeField3:
   --cf3-dropout CF3_DROPOUT
@@ -515,6 +510,16 @@ network configuration:
                         (default: filter_and_extend)
 
 show:
+  --save-all [SAVE_ALL]
+                        every plot is saved (optional to specify directory)
+                        (default: None)
+  --show                show every plot, i.e., call matplotlib show()
+                        (default: False)
+  --figure-width FIGURE_WIDTH
+                        figure width for matplotlib (in inches) (default: 7.0)
+  --image-dpi-factor IMAGE_DPI_FACTOR
+                        increase dpi of output image by this factor (default:
+                        1.0)
   --show-box
   --show-joint-scales
   --show-joint-confidences
@@ -551,16 +556,17 @@ pose visualizer:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>usage: python3 -m openpifpaf.video [-h] [--version] [--resnet-no-pretrain]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>usage: python3 -m openpifpaf.video [-h] [--version]
+                                   [--shufflenetv2k-input-conv2-stride SHUFFLENETV2K_INPUT_CONV2_STRIDE]
+                                   [--shufflenetv2k-input-conv2-outchannels SHUFFLENETV2K_INPUT_CONV2_OUTCHANNELS]
+                                   [--shufflenetv2k-stage4-dilation SHUFFLENETV2K_STAGE4_DILATION]
+                                   [--shufflenetv2k-instance-norm | --shufflenetv2k-group-norm]
+                                   [--resnet-no-pretrain]
                                    [--resnet-pool0-stride RESNET_POOL0_STRIDE]
                                    [--resnet-input-conv-stride RESNET_INPUT_CONV_STRIDE]
                                    [--resnet-input-conv2-stride RESNET_INPUT_CONV2_STRIDE]
                                    [--resnet-block5-dilation RESNET_BLOCK5_DILATION]
                                    [--resnet-remove-last-block]
-                                   [--shufflenetv2k-input-conv2-stride SHUFFLENETV2K_INPUT_CONV2_STRIDE]
-                                   [--shufflenetv2k-input-conv2-outchannels SHUFFLENETV2K_INPUT_CONV2_OUTCHANNELS]
-                                   [--shufflenetv2k-stage4-dilation SHUFFLENETV2K_STAGE4_DILATION]
-                                   [--shufflenetv2k-instance-norm | --shufflenetv2k-group-norm]
                                    [--shufflenetv2-no-pretrain]
                                    [--cf3-dropout CF3_DROPOUT]
                                    [--cf3-no-inplace-ops]
@@ -582,8 +588,11 @@ pose visualizer:
                                    [--keypoint-threshold KEYPOINT_THRESHOLD]
                                    [--greedy]
                                    [--connection-method {max,blend}] [-q]
-                                   [--debug] [--log-stats] [--show-box]
-                                   [--show-joint-scales]
+                                   [--debug] [--log-stats]
+                                   [--save-all [SAVE_ALL]] [--show]
+                                   [--figure-width FIGURE_WIDTH]
+                                   [--image-dpi-factor IMAGE_DPI_FACTOR]
+                                   [--show-box] [--show-joint-scales]
                                    [--show-joint-confidences]
                                    [--show-decoding-order]
                                    [--show-frontier-order]
@@ -596,7 +605,7 @@ pose visualizer:
                                    [--debug-indices DEBUG_INDICES [DEBUG_INDICES ...]]
                                    [--debug-images] [--source SOURCE]
                                    [--video-output [VIDEO_OUTPUT]]
-                                   [--json-output [JSON_OUTPUT]] [--show]
+                                   [--json-output [JSON_OUTPUT]]
                                    [--horizontal-flip] [--long-edge LONG_EDGE]
                                    [--line-width LINE_WIDTH]
                                    [--monocolor-connections] [--disable-cuda]
@@ -635,7 +644,6 @@ optional arguments:
                         video output file (default: None)
   --json-output [JSON_OUTPUT]
                         json output file (default: None)
-  --show
   --horizontal-flip
   --long-edge LONG_EDGE
                         long edge of input images (default: None)
@@ -652,6 +660,18 @@ optional arguments:
                         left top right bottom (default: None)
   --rotate {left,right,180}
 
+shufflenetv2k:
+  --shufflenetv2k-input-conv2-stride SHUFFLENETV2K_INPUT_CONV2_STRIDE
+                        stride of the optional 2nd input convolution (default:
+                        0)
+  --shufflenetv2k-input-conv2-outchannels SHUFFLENETV2K_INPUT_CONV2_OUTCHANNELS
+                        out channels of the optional 2nd input convolution
+                        (default: None)
+  --shufflenetv2k-stage4-dilation SHUFFLENETV2K_STAGE4_DILATION
+                        dilation factor of stage 4 (default: 1)
+  --shufflenetv2k-instance-norm
+  --shufflenetv2k-group-norm
+
 ResNet:
   --resnet-no-pretrain  use randomly initialized models (default: True)
   --resnet-pool0-stride RESNET_POOL0_STRIDE
@@ -666,18 +686,6 @@ ResNet:
   --resnet-remove-last-block
                         create a network without the last block (default:
                         False)
-
-shufflenetv2k:
-  --shufflenetv2k-input-conv2-stride SHUFFLENETV2K_INPUT_CONV2_STRIDE
-                        stride of the optional 2nd input convolution (default:
-                        0)
-  --shufflenetv2k-input-conv2-outchannels SHUFFLENETV2K_INPUT_CONV2_OUTCHANNELS
-                        out channels of the optional 2nd input convolution
-                        (default: None)
-  --shufflenetv2k-stage4-dilation SHUFFLENETV2K_STAGE4_DILATION
-                        dilation factor of stage 4 (default: 1)
-  --shufflenetv2k-instance-norm
-  --shufflenetv2k-group-norm
 
 ShuffleNetv2:
   --shufflenetv2-no-pretrain
@@ -743,6 +751,16 @@ logger:
   --log-stats           enable stats logging (default: False)
 
 show:
+  --save-all [SAVE_ALL]
+                        every plot is saved (optional to specify directory)
+                        (default: None)
+  --show                show every plot, i.e., call matplotlib show()
+                        (default: False)
+  --figure-width FIGURE_WIDTH
+                        figure width for matplotlib (in inches) (default: 7.0)
+  --image-dpi-factor IMAGE_DPI_FACTOR
+                        increase dpi of output image by this factor (default:
+                        1.0)
   --show-box
   --show-joint-scales
   --show-joint-confidences
@@ -780,7 +798,7 @@ pose visualizer:
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>usage: python3 -m openpifpaf.train [-h] [--version] [-q] [--debug]
-                                   [--log-stats] [--shufflenetv2-no-pretrain]
+                                   [--log-stats]
                                    [--shufflenetv2k-input-conv2-stride SHUFFLENETV2K_INPUT_CONV2_STRIDE]
                                    [--shufflenetv2k-input-conv2-outchannels SHUFFLENETV2K_INPUT_CONV2_OUTCHANNELS]
                                    [--shufflenetv2k-stage4-dilation SHUFFLENETV2K_STAGE4_DILATION]
@@ -791,6 +809,7 @@ pose visualizer:
                                    [--resnet-input-conv2-stride RESNET_INPUT_CONV2_STRIDE]
                                    [--resnet-block5-dilation RESNET_BLOCK5_DILATION]
                                    [--resnet-remove-last-block]
+                                   [--shufflenetv2-no-pretrain]
                                    [--cf3-dropout CF3_DROPOUT]
                                    [--cf3-no-inplace-ops]
                                    [--checkpoint CHECKPOINT]
@@ -857,8 +876,11 @@ pose visualizer:
                                    [--coco-eval-extended-scale]
                                    [--coco-eval-orientation-invariant COCO_EVAL_ORIENTATION_INVARIANT]
                                    [--cifar10-root-dir CIFAR10_ROOT_DIR]
-                                   [--cifar10-download] [--show-box]
-                                   [--show-joint-scales]
+                                   [--cifar10-download]
+                                   [--save-all [SAVE_ALL]] [--show]
+                                   [--figure-width FIGURE_WIDTH]
+                                   [--image-dpi-factor IMAGE_DPI_FACTOR]
+                                   [--show-box] [--show-joint-scales]
                                    [--show-joint-confidences]
                                    [--show-decoding-order]
                                    [--show-frontier-order]
@@ -910,10 +932,6 @@ logger:
   --debug               print debug messages (default: False)
   --log-stats           enable stats logging (default: False)
 
-ShuffleNetv2:
-  --shufflenetv2-no-pretrain
-                        use randomly initialized models (default: True)
-
 shufflenetv2k:
   --shufflenetv2k-input-conv2-stride SHUFFLENETV2K_INPUT_CONV2_STRIDE
                         stride of the optional 2nd input convolution (default:
@@ -940,6 +958,10 @@ ResNet:
   --resnet-remove-last-block
                         create a network without the last block (default:
                         False)
+
+ShuffleNetv2:
+  --shufflenetv2-no-pretrain
+                        use randomly initialized models (default: True)
 
 CompositeField3:
   --cf3-dropout CF3_DROPOUT
@@ -1096,6 +1118,16 @@ data module Cifar10:
   --cifar10-download
 
 show:
+  --save-all [SAVE_ALL]
+                        every plot is saved (optional to specify directory)
+                        (default: None)
+  --show                show every plot, i.e., call matplotlib show()
+                        (default: False)
+  --figure-width FIGURE_WIDTH
+                        figure width for matplotlib (in inches) (default: 7.0)
+  --image-dpi-factor IMAGE_DPI_FACTOR
+                        increase dpi of output image by this factor (default:
+                        1.0)
   --show-box
   --show-joint-scales
   --show-joint-confidences
@@ -1225,7 +1257,17 @@ logging:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>usage: python3 -m openpifpaf.logs [-h] [--version] [--label LABEL [LABEL ...]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>usage: python3 -m openpifpaf.logs [-h] [--version] [--save-all [SAVE_ALL]]
+                                  [--show] [--figure-width FIGURE_WIDTH]
+                                  [--image-dpi-factor IMAGE_DPI_FACTOR]
+                                  [--show-box] [--show-joint-scales]
+                                  [--show-joint-confidences]
+                                  [--show-decoding-order]
+                                  [--show-frontier-order]
+                                  [--show-only-decoded-connections]
+                                  [--video-fps VIDEO_FPS]
+                                  [--video-dpi VIDEO_DPI]
+                                  [--label LABEL [LABEL ...]]
                                   [--eval-suffix EVAL_SUFFIX]
                                   [--first-epoch FIRST_EPOCH] [--no-share-y]
                                   [-o OUTPUT] [--show-mtl-sigmas]
@@ -1252,6 +1294,26 @@ optional arguments:
                         output prefix (default is log_file + .) (default:
                         None)
   --show-mtl-sigmas
+
+show:
+  --save-all [SAVE_ALL]
+                        every plot is saved (optional to specify directory)
+                        (default: None)
+  --show                show every plot, i.e., call matplotlib show()
+                        (default: False)
+  --figure-width FIGURE_WIDTH
+                        figure width for matplotlib (in inches) (default: 7.0)
+  --image-dpi-factor IMAGE_DPI_FACTOR
+                        increase dpi of output image by this factor (default:
+                        1.0)
+  --show-box
+  --show-joint-scales
+  --show-joint-confidences
+  --show-decoding-order
+  --show-frontier-order
+  --show-only-decoded-connections
+  --video-fps VIDEO_FPS
+  --video-dpi VIDEO_DPI
 </pre></div>
 </div>
 </div>

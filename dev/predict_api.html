@@ -325,14 +325,15 @@
 The API is for more advanced use cases. Please read <a class="reference internal" href="predict_cli.html"><span class="doc">Prediction</span></a> as well.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
-
-<span class="kn">import</span> <span class="nn">io</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">io</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">openpifpaf</span>
 <span class="kn">import</span> <span class="nn">PIL</span>
 <span class="kn">import</span> <span class="nn">requests</span>
 <span class="kn">import</span> <span class="nn">torch</span>
+
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="n">openpifpaf</span><span class="o">.</span><span class="n">show</span><span class="o">.</span><span class="n">Canvas</span><span class="o">.</span><span class="n">show</span> <span class="o">=</span> <span class="kc">True</span>
 
 <span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s1">&#39;cpu&#39;</span><span class="p">)</span>
 <span class="c1"># device = torch.device(&#39;cuda&#39;)  # if cuda is available</span>
