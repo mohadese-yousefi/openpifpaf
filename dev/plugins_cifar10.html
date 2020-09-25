@@ -382,7 +382,6 @@ To create a network, we use the <code class="docutils literal notranslate"><span
 <span class="c1"># create a canvas and loop over the first few entries in the training data</span>
 <span class="k">with</span> <span class="n">openpifpaf</span><span class="o">.</span><span class="n">show</span><span class="o">.</span><span class="n">canvas</span><span class="p">(</span><span class="n">ncols</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">nrows</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span> <span class="k">as</span> <span class="n">axs</span><span class="p">:</span>
     <span class="k">for</span> <span class="n">images</span><span class="p">,</span> <span class="n">targets</span><span class="p">,</span> <span class="n">meta</span> <span class="ow">in</span> <span class="n">loop_over_axes</span><span class="p">(</span><span class="n">axs</span><span class="p">,</span> <span class="n">datamodule</span><span class="o">.</span><span class="n">train_loader</span><span class="p">()):</span>
-        <span class="c1"># print([t.shape for t in targets])</span>
         <span class="k">pass</span>
 </pre></div>
 </div>
@@ -401,7 +400,7 @@ To create a network, we use the <code class="docutils literal notranslate"><span
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:openpifpaf.logger:{&#39;type&#39;: &#39;process&#39;, &#39;argv&#39;: [&#39;/opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/site-packages/openpifpaf/train.py&#39;, &#39;--dataset=cifar10&#39;, &#39;--basenet=cifar10net&#39;, &#39;--epochs=1&#39;, &#39;--log-interval=500&#39;, &#39;--lr-warm-up-epochs=0.1&#39;, &#39;--lr=3e-3&#39;, &#39;--batch-size=16&#39;, &#39;--loader-workers=2&#39;, &#39;--output=cifar10_tutorial.pkl&#39;], &#39;args&#39;: {&#39;quiet&#39;: False, &#39;debug&#39;: False, &#39;log_stats&#39;: False, &#39;shufflenetv2_pretrained&#39;: True, &#39;shufflenetv2k_input_conv2_stride&#39;: 0, &#39;shufflenetv2k_input_conv2_outchannels&#39;: None, &#39;shufflenetv2k_stage4_dilation&#39;: 1, &#39;shufflenetv2k_instance_norm&#39;: False, &#39;shufflenetv2k_group_norm&#39;: False, &#39;resnet_pretrained&#39;: True, &#39;resnet_pool0_stride&#39;: 0, &#39;resnet_input_conv_stride&#39;: 2, &#39;resnet_input_conv2_stride&#39;: 0, &#39;resnet_block5_dilation&#39;: 1, &#39;resnet_remove_last_block&#39;: False, &#39;cf3_dropout&#39;: 0.0, &#39;cf3_inplace_ops&#39;: True, &#39;checkpoint&#39;: None, &#39;basenet&#39;: &#39;cifar10net&#39;, &#39;two_scale&#39;: False, &#39;multi_scale&#39;: False, &#39;multi_scale_hflip&#39;: True, &#39;cross_talk&#39;: 0.0, &#39;download_progress&#39;: True, &#39;dense_coupling&#39;: 0.0, &#39;head_consolidation&#39;: &#39;filter_and_extend&#39;, &#39;lambdas&#39;: None, &#39;r_smooth&#39;: 0.0, &#39;regression_loss&#39;: &#39;laplace&#39;, &#39;background_weight&#39;: 1.0, &#39;b_scale&#39;: 1.0, &#39;focal_gamma&#39;: 1.0, &#39;margin_loss&#39;: False, &#39;auto_tune_mtl&#39;: False, &#39;auto_tune_mtl_variance&#39;: False, &#39;task_sparsity_weight&#39;: 0.0, &#39;cif_side_length&#39;: 4, &#39;caf_min_size&#39;: 3, &#39;caf_fixed_size&#39;: False, &#39;caf_aspect_ratio&#39;: 0.0, &#39;momentum&#39;: 0.9, &#39;beta2&#39;: 0.999, &#39;adam_eps&#39;: 1e-06, &#39;nesterov&#39;: True, &#39;weight_decay&#39;: 0.0, &#39;adam&#39;: False, &#39;amsgrad&#39;: False, &#39;lr&#39;: 0.003, &#39;lr_decay&#39;: [], &#39;lr_decay_factor&#39;: 0.1, &#39;lr_decay_epochs&#39;: 1.0, &#39;lr_warm_up_start_epoch&#39;: 0, &#39;lr_warm_up_epochs&#39;: 0.1, &#39;lr_warm_up_factor&#39;: 0.001, &#39;lr_warm_restarts&#39;: [], &#39;lr_warm_restart_duration&#39;: 0.5, &#39;dataset&#39;: &#39;cifar10&#39;, &#39;loader_workers&#39;: 2, &#39;batch_size&#39;: 16, &#39;dataset_weights&#39;: None, &#39;cocodet_train_annotations&#39;: &#39;data-mscoco/annotations/instances_train2017.json&#39;, &#39;cocodet_val_annotations&#39;: &#39;data-mscoco/annotations/instances_val2017.json&#39;, &#39;cocodet_train_image_dir&#39;: &#39;data-mscoco/images/train2017/&#39;, &#39;cocodet_val_image_dir&#39;: &#39;data-mscoco/images/val2017/&#39;, &#39;cocodet_square_edge&#39;: 513, &#39;cocodet_extended_scale&#39;: False, &#39;cocodet_orientation_invariant&#39;: 0.0, &#39;cocodet_augmentation&#39;: True, &#39;cocodet_rescale_images&#39;: 1.0, &#39;cocodet_upsample&#39;: 1, &#39;cocokp_train_annotations&#39;: &#39;data-mscoco/annotations/person_keypoints_train2017.json&#39;, &#39;cocokp_val_annotations&#39;: &#39;data-mscoco/annotations/person_keypoints_val2017.json&#39;, &#39;cocokp_train_image_dir&#39;: &#39;data-mscoco/images/train2017/&#39;, &#39;cocokp_val_image_dir&#39;: &#39;data-mscoco/images/val2017/&#39;, &#39;cocokp_square_edge&#39;: 385, &#39;cocokp_extended_scale&#39;: False, &#39;cocokp_orientation_invariant&#39;: 0.0, &#39;cocokp_blur&#39;: 0.0, &#39;cocokp_augmentation&#39;: True, &#39;cocokp_rescale_images&#39;: 1.0, &#39;cocokp_upsample&#39;: 1, &#39;cocokp_min_kp_anns&#39;: 1, &#39;cocokp_eval_test2017&#39;: False, &#39;cocokp_eval_testdev2017&#39;: False, &#39;coco_eval_annotation_filter&#39;: True, &#39;coco_eval_long_edge&#39;: 641, &#39;coco_eval_extended_scale&#39;: False, &#39;coco_eval_orientation_invariant&#39;: 0.0, &#39;cifar10_root_dir&#39;: &#39;data-cifar10/&#39;, &#39;cifar10_download&#39;: False, &#39;show_box&#39;: False, &#39;show_joint_scales&#39;: False, &#39;show_joint_confidences&#39;: False, &#39;show_decoding_order&#39;: False, &#39;show_frontier_order&#39;: False, &#39;show_only_decoded_connections&#39;: False, &#39;video_fps&#39;: 10, &#39;video_dpi&#39;: 100, &#39;debug_cifhr&#39;: False, &#39;debug_cif_c&#39;: False, &#39;debug_cif_v&#39;: False, &#39;debug_cifdet_c&#39;: False, &#39;debug_cifdet_v&#39;: False, &#39;debug_caf_c&#39;: False, &#39;debug_caf_v&#39;: False, &#39;debug_indices&#39;: [], &#39;debug_images&#39;: False, &#39;output&#39;: &#39;cifar10_tutorial.pkl&#39;, &#39;stride_apply&#39;: 1, &#39;epochs&#39;: 1, &#39;val_interval&#39;: 1, &#39;train_batches&#39;: None, &#39;val_batches&#39;: None, &#39;fix_batch_norm&#39;: False, &#39;ema&#39;: 0.01, &#39;clip_grad_norm&#39;: 0.0, &#39;log_interval&#39;: 500, &#39;disable_cuda&#39;: False, &#39;profile&#39;: None, &#39;device&#39;: device(type=&#39;cpu&#39;), &#39;pin_memory&#39;: False}, &#39;version&#39;: &#39;0+unknown&#39;, &#39;hostname&#39;: &#39;fv-az40&#39;}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:openpifpaf.logger:{&#39;type&#39;: &#39;process&#39;, &#39;argv&#39;: [&#39;/opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/site-packages/openpifpaf/train.py&#39;, &#39;--dataset=cifar10&#39;, &#39;--basenet=cifar10net&#39;, &#39;--epochs=1&#39;, &#39;--log-interval=500&#39;, &#39;--lr-warm-up-epochs=0.1&#39;, &#39;--lr=3e-3&#39;, &#39;--batch-size=16&#39;, &#39;--loader-workers=2&#39;, &#39;--output=cifar10_tutorial.pkl&#39;], &#39;args&#39;: {&#39;quiet&#39;: False, &#39;debug&#39;: False, &#39;log_stats&#39;: False, &#39;shufflenetv2_pretrained&#39;: True, &#39;shufflenetv2k_input_conv2_stride&#39;: 0, &#39;shufflenetv2k_input_conv2_outchannels&#39;: None, &#39;shufflenetv2k_stage4_dilation&#39;: 1, &#39;shufflenetv2k_instance_norm&#39;: False, &#39;shufflenetv2k_group_norm&#39;: False, &#39;resnet_pretrained&#39;: True, &#39;resnet_pool0_stride&#39;: 0, &#39;resnet_input_conv_stride&#39;: 2, &#39;resnet_input_conv2_stride&#39;: 0, &#39;resnet_block5_dilation&#39;: 1, &#39;resnet_remove_last_block&#39;: False, &#39;cf3_dropout&#39;: 0.0, &#39;cf3_inplace_ops&#39;: True, &#39;checkpoint&#39;: None, &#39;basenet&#39;: &#39;cifar10net&#39;, &#39;two_scale&#39;: False, &#39;multi_scale&#39;: False, &#39;multi_scale_hflip&#39;: True, &#39;cross_talk&#39;: 0.0, &#39;download_progress&#39;: True, &#39;dense_coupling&#39;: 0.0, &#39;head_consolidation&#39;: &#39;filter_and_extend&#39;, &#39;lambdas&#39;: None, &#39;r_smooth&#39;: 0.0, &#39;regression_loss&#39;: &#39;laplace&#39;, &#39;background_weight&#39;: 1.0, &#39;b_scale&#39;: 1.0, &#39;focal_gamma&#39;: 1.0, &#39;margin_loss&#39;: False, &#39;auto_tune_mtl&#39;: False, &#39;auto_tune_mtl_variance&#39;: False, &#39;task_sparsity_weight&#39;: 0.0, &#39;cif_side_length&#39;: 4, &#39;caf_min_size&#39;: 3, &#39;caf_fixed_size&#39;: False, &#39;caf_aspect_ratio&#39;: 0.0, &#39;momentum&#39;: 0.9, &#39;beta2&#39;: 0.999, &#39;adam_eps&#39;: 1e-06, &#39;nesterov&#39;: True, &#39;weight_decay&#39;: 0.0, &#39;adam&#39;: False, &#39;amsgrad&#39;: False, &#39;lr&#39;: 0.003, &#39;lr_decay&#39;: [], &#39;lr_decay_factor&#39;: 0.1, &#39;lr_decay_epochs&#39;: 1.0, &#39;lr_warm_up_start_epoch&#39;: 0, &#39;lr_warm_up_epochs&#39;: 0.1, &#39;lr_warm_up_factor&#39;: 0.001, &#39;lr_warm_restarts&#39;: [], &#39;lr_warm_restart_duration&#39;: 0.5, &#39;dataset&#39;: &#39;cifar10&#39;, &#39;loader_workers&#39;: 2, &#39;batch_size&#39;: 16, &#39;dataset_weights&#39;: None, &#39;cocodet_train_annotations&#39;: &#39;data-mscoco/annotations/instances_train2017.json&#39;, &#39;cocodet_val_annotations&#39;: &#39;data-mscoco/annotations/instances_val2017.json&#39;, &#39;cocodet_train_image_dir&#39;: &#39;data-mscoco/images/train2017/&#39;, &#39;cocodet_val_image_dir&#39;: &#39;data-mscoco/images/val2017/&#39;, &#39;cocodet_square_edge&#39;: 513, &#39;cocodet_extended_scale&#39;: False, &#39;cocodet_orientation_invariant&#39;: 0.0, &#39;cocodet_augmentation&#39;: True, &#39;cocodet_rescale_images&#39;: 1.0, &#39;cocodet_upsample&#39;: 1, &#39;cocokp_train_annotations&#39;: &#39;data-mscoco/annotations/person_keypoints_train2017.json&#39;, &#39;cocokp_val_annotations&#39;: &#39;data-mscoco/annotations/person_keypoints_val2017.json&#39;, &#39;cocokp_train_image_dir&#39;: &#39;data-mscoco/images/train2017/&#39;, &#39;cocokp_val_image_dir&#39;: &#39;data-mscoco/images/val2017/&#39;, &#39;cocokp_square_edge&#39;: 385, &#39;cocokp_extended_scale&#39;: False, &#39;cocokp_orientation_invariant&#39;: 0.0, &#39;cocokp_blur&#39;: 0.0, &#39;cocokp_augmentation&#39;: True, &#39;cocokp_rescale_images&#39;: 1.0, &#39;cocokp_upsample&#39;: 1, &#39;cocokp_min_kp_anns&#39;: 1, &#39;cocokp_eval_test2017&#39;: False, &#39;cocokp_eval_testdev2017&#39;: False, &#39;coco_eval_annotation_filter&#39;: True, &#39;coco_eval_long_edge&#39;: 641, &#39;coco_eval_extended_scale&#39;: False, &#39;coco_eval_orientation_invariant&#39;: 0.0, &#39;cifar10_root_dir&#39;: &#39;data-cifar10/&#39;, &#39;cifar10_download&#39;: False, &#39;show_box&#39;: False, &#39;show_joint_scales&#39;: False, &#39;show_joint_confidences&#39;: False, &#39;show_decoding_order&#39;: False, &#39;show_frontier_order&#39;: False, &#39;show_only_decoded_connections&#39;: False, &#39;video_fps&#39;: 10, &#39;video_dpi&#39;: 100, &#39;debug_cifhr&#39;: False, &#39;debug_cif_c&#39;: False, &#39;debug_cif_v&#39;: False, &#39;debug_cifdet_c&#39;: False, &#39;debug_cifdet_v&#39;: False, &#39;debug_caf_c&#39;: False, &#39;debug_caf_v&#39;: False, &#39;debug_indices&#39;: [], &#39;debug_images&#39;: False, &#39;output&#39;: &#39;cifar10_tutorial.pkl&#39;, &#39;stride_apply&#39;: 1, &#39;epochs&#39;: 1, &#39;val_interval&#39;: 1, &#39;train_batches&#39;: None, &#39;val_batches&#39;: None, &#39;fix_batch_norm&#39;: False, &#39;ema&#39;: 0.01, &#39;clip_grad_norm&#39;: 0.0, &#39;log_interval&#39;: 500, &#39;disable_cuda&#39;: False, &#39;profile&#39;: None, &#39;device&#39;: device(type=&#39;cpu&#39;), &#39;pin_memory&#39;: False}, &#39;version&#39;: &#39;0+unknown&#39;, &#39;hostname&#39;: &#39;fv-az70&#39;}
 INFO:openpifpaf.network.basenetworks:cifar10net: stride = 16, output features = 128
 INFO:openpifpaf.network.losses:multihead loss: [&#39;cifar10.cifdet.c&#39;, &#39;cifar10.cifdet.vec1&#39;, &#39;cifar10.cifdet.vec2&#39;], [1.0, 1.0, 1.0]
 </pre></div>
@@ -410,32 +409,32 @@ INFO:openpifpaf.network.losses:multihead loss: [&#39;cifar10.cifdet.c&#39;, &#39
 INFO:openpifpaf.network.trainer:{&#39;type&#39;: &#39;config&#39;, &#39;field_names&#39;: [&#39;cifar10.cifdet.c&#39;, &#39;cifar10.cifdet.vec1&#39;, &#39;cifar10.cifdet.vec2&#39;]}
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:openpifpaf.network.trainer:{&#39;type&#39;: &#39;train&#39;, &#39;epoch&#39;: 0, &#39;batch&#39;: 0, &#39;n_batches&#39;: 3125, &#39;time&#39;: 0.035, &#39;data_time&#39;: 0.078, &#39;lr&#39;: 3e-06, &#39;loss&#39;: 76.573, &#39;head_losses&#39;: [32.19, 18.62, 25.763]}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:openpifpaf.network.trainer:{&#39;type&#39;: &#39;train&#39;, &#39;epoch&#39;: 0, &#39;batch&#39;: 0, &#39;n_batches&#39;: 3125, &#39;time&#39;: 0.043, &#39;data_time&#39;: 0.073, &#39;lr&#39;: 3e-06, &#39;loss&#39;: 75.105, &#39;head_losses&#39;: [30.886, 18.711, 25.509]}
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:openpifpaf.network.trainer:{&#39;type&#39;: &#39;train&#39;, &#39;epoch&#39;: 0, &#39;batch&#39;: 500, &#39;n_batches&#39;: 3125, &#39;time&#39;: 0.03, &#39;data_time&#39;: 0.002, &#39;lr&#39;: 0.003, &#39;loss&#39;: 33.559, &#39;head_losses&#39;: [14.828, 9.395, 9.337]}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:openpifpaf.network.trainer:{&#39;type&#39;: &#39;train&#39;, &#39;epoch&#39;: 0, &#39;batch&#39;: 500, &#39;n_batches&#39;: 3125, &#39;time&#39;: 0.029, &#39;data_time&#39;: 0.001, &#39;lr&#39;: 0.003, &#39;loss&#39;: 33.52, &#39;head_losses&#39;: [14.616, 9.351, 9.553]}
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:openpifpaf.network.trainer:{&#39;type&#39;: &#39;train&#39;, &#39;epoch&#39;: 0, &#39;batch&#39;: 1000, &#39;n_batches&#39;: 3125, &#39;time&#39;: 0.032, &#39;data_time&#39;: 0.002, &#39;lr&#39;: 0.003, &#39;loss&#39;: 33.098, &#39;head_losses&#39;: [14.471, 9.311, 9.316]}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:openpifpaf.network.trainer:{&#39;type&#39;: &#39;train&#39;, &#39;epoch&#39;: 0, &#39;batch&#39;: 1000, &#39;n_batches&#39;: 3125, &#39;time&#39;: 0.029, &#39;data_time&#39;: 0.002, &#39;lr&#39;: 0.003, &#39;loss&#39;: 32.93, &#39;head_losses&#39;: [14.368, 9.358, 9.204]}
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:openpifpaf.network.trainer:{&#39;type&#39;: &#39;train&#39;, &#39;epoch&#39;: 0, &#39;batch&#39;: 1500, &#39;n_batches&#39;: 3125, &#39;time&#39;: 0.03, &#39;data_time&#39;: 0.002, &#39;lr&#39;: 0.003, &#39;loss&#39;: 31.954, &#39;head_losses&#39;: [13.484, 9.236, 9.235]}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:openpifpaf.network.trainer:{&#39;type&#39;: &#39;train&#39;, &#39;epoch&#39;: 0, &#39;batch&#39;: 1500, &#39;n_batches&#39;: 3125, &#39;time&#39;: 0.032, &#39;data_time&#39;: 0.002, &#39;lr&#39;: 0.003, &#39;loss&#39;: 32.398, &#39;head_losses&#39;: [13.941, 9.247, 9.21]}
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:openpifpaf.network.trainer:{&#39;type&#39;: &#39;train&#39;, &#39;epoch&#39;: 0, &#39;batch&#39;: 2000, &#39;n_batches&#39;: 3125, &#39;time&#39;: 0.029, &#39;data_time&#39;: 0.002, &#39;lr&#39;: 0.003, &#39;loss&#39;: 31.199, &#39;head_losses&#39;: [12.667, 9.272, 9.26]}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:openpifpaf.network.trainer:{&#39;type&#39;: &#39;train&#39;, &#39;epoch&#39;: 0, &#39;batch&#39;: 2000, &#39;n_batches&#39;: 3125, &#39;time&#39;: 0.03, &#39;data_time&#39;: 0.002, &#39;lr&#39;: 0.003, &#39;loss&#39;: 30.572, &#39;head_losses&#39;: [12.192, 9.224, 9.156]}
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:openpifpaf.network.trainer:{&#39;type&#39;: &#39;train&#39;, &#39;epoch&#39;: 0, &#39;batch&#39;: 2500, &#39;n_batches&#39;: 3125, &#39;time&#39;: 0.03, &#39;data_time&#39;: 0.002, &#39;lr&#39;: 0.003, &#39;loss&#39;: 31.058, &#39;head_losses&#39;: [12.586, 9.294, 9.178]}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:openpifpaf.network.trainer:{&#39;type&#39;: &#39;train&#39;, &#39;epoch&#39;: 0, &#39;batch&#39;: 2500, &#39;n_batches&#39;: 3125, &#39;time&#39;: 0.029, &#39;data_time&#39;: 0.002, &#39;lr&#39;: 0.003, &#39;loss&#39;: 32.527, &#39;head_losses&#39;: [14.124, 9.238, 9.164]}
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:openpifpaf.network.trainer:{&#39;type&#39;: &#39;train&#39;, &#39;epoch&#39;: 0, &#39;batch&#39;: 3000, &#39;n_batches&#39;: 3125, &#39;time&#39;: 0.032, &#39;data_time&#39;: 0.002, &#39;lr&#39;: 0.003, &#39;loss&#39;: 30.594, &#39;head_losses&#39;: [12.117, 9.284, 9.193]}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:openpifpaf.network.trainer:{&#39;type&#39;: &#39;train&#39;, &#39;epoch&#39;: 0, &#39;batch&#39;: 3000, &#39;n_batches&#39;: 3125, &#39;time&#39;: 0.028, &#39;data_time&#39;: 0.002, &#39;lr&#39;: 0.003, &#39;loss&#39;: 31.511, &#39;head_losses&#39;: [12.976, 9.311, 9.224]}
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:openpifpaf.network.trainer:applying ema
-INFO:openpifpaf.network.trainer:{&#39;type&#39;: &#39;train-epoch&#39;, &#39;epoch&#39;: 1, &#39;loss&#39;: 35.34138, &#39;head_losses&#39;: [14.9136, 10.01766, 10.41012], &#39;time&#39;: 103.7, &#39;n_clipped_grad&#39;: 0, &#39;max_norm&#39;: 0.0}
+INFO:openpifpaf.network.trainer:{&#39;type&#39;: &#39;train-epoch&#39;, &#39;epoch&#39;: 1, &#39;loss&#39;: 35.1833, &#39;head_losses&#39;: [14.72021, 10.05175, 10.41133], &#39;time&#39;: 101.4, &#39;n_clipped_grad&#39;: 0, &#39;max_norm&#39;: 0.0}
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:openpifpaf.network.trainer:{&#39;type&#39;: &#39;val-epoch&#39;, &#39;epoch&#39;: 1, &#39;loss&#39;: 30.78301, &#39;head_losses&#39;: [12.62309, 9.09855, 9.06137], &#39;time&#39;: 12.4}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:openpifpaf.network.trainer:{&#39;type&#39;: &#39;val-epoch&#39;, &#39;epoch&#39;: 1, &#39;loss&#39;: 30.72635, &#39;head_losses&#39;: [12.55997, 9.10368, 9.0627], &#39;time&#39;: 14.3}
 </pre></div>
 </div>
 </div>
@@ -479,7 +478,7 @@ INFO:openpifpaf.network.trainer:{&#39;type&#39;: &#39;train-epoch&#39;, &#39;epo
 </pre></div>
 </div>
 <img alt="_images/plugins_cifar10_11_10.png" src="_images/plugins_cifar10_11_10.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>cifar10_tutorial.pkl.log: {&#39;message&#39;: None, &#39;levelname&#39;: &#39;INFO&#39;, &#39;name&#39;: &#39;openpifpaf.network.trainer&#39;, &#39;asctime&#39;: &#39;2020-09-24 20:10:46,490&#39;, &#39;type&#39;: &#39;train&#39;, &#39;epoch&#39;: 0, &#39;batch&#39;: 3000, &#39;n_batches&#39;: 3125, &#39;time&#39;: 0.032, &#39;data_time&#39;: 0.002, &#39;lr&#39;: 0.003, &#39;loss&#39;: 30.594, &#39;head_losses&#39;: [12.117, 9.284, 9.193]}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>cifar10_tutorial.pkl.log: {&#39;message&#39;: None, &#39;levelname&#39;: &#39;INFO&#39;, &#39;name&#39;: &#39;openpifpaf.network.trainer&#39;, &#39;asctime&#39;: &#39;2020-09-25 08:47:52,799&#39;, &#39;type&#39;: &#39;train&#39;, &#39;epoch&#39;: 0, &#39;batch&#39;: 3000, &#39;n_batches&#39;: 3125, &#39;time&#39;: 0.028, &#39;data_time&#39;: 0.002, &#39;lr&#39;: 0.003, &#39;loss&#39;: 31.511, &#39;head_losses&#39;: [12.976, 9.311, 9.224]}
 </pre></div>
 </div>
 </div>
@@ -496,17 +495,19 @@ INFO:openpifpaf.network.trainer:{&#39;type&#39;: &#39;train-epoch&#39;, &#39;epo
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:openpifpaf.decoder.generator.cifdet:annotations 8, decoder = 0.003s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:openpifpaf.decoder.cifdet:annotations 7, decoder = 0.003s
 INFO:__main__:batch 0: images/cifar10_airplane4.png
-INFO:openpifpaf.decoder.generator.cifdet:annotations 5, decoder = 0.003s
+INFO:openpifpaf.decoder.cifdet:annotations 5, decoder = 0.002s
 INFO:__main__:batch 1: images/cifar10_automobile10.png
-INFO:openpifpaf.decoder.generator.cifdet:annotations 6, decoder = 0.002s
+INFO:openpifpaf.decoder.cifdet:annotations 8, decoder = 0.002s
 INFO:__main__:batch 2: images/cifar10_ship7.png
-INFO:openpifpaf.decoder.generator.cifdet:annotations 10, decoder = 0.003s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:openpifpaf.decoder.cifdet:annotations 9, decoder = 0.002s
 INFO:__main__:batch 3: images/cifar10_truck8.png
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[{&quot;category_id&quot;: 1, &quot;category&quot;: &quot;plane&quot;, &quot;score&quot;: 0.231, &quot;bbox&quot;: [4.93, 4.89, 20.96, 20.98]}, {&quot;category_id&quot;: 9, &quot;category&quot;: &quot;ship&quot;, &quot;score&quot;: 0.02, &quot;bbox&quot;: [5.02, 4.96, 21.05, 20.95]}, {&quot;category_id&quot;: 3, &quot;category&quot;: &quot;bird&quot;, &quot;score&quot;: 0.016, &quot;bbox&quot;: [5.27, 5.07, 20.68, 20.85]}, {&quot;category_id&quot;: 10, &quot;category&quot;: &quot;truck&quot;, &quot;score&quot;: 0.013, &quot;bbox&quot;: [4.97, 5.06, 20.99, 20.98]}, {&quot;category_id&quot;: 4, &quot;category&quot;: &quot;cat&quot;, &quot;score&quot;: 0.012, &quot;bbox&quot;: [4.84, 4.94, 21.05, 21.08]}, {&quot;category_id&quot;: 5, &quot;category&quot;: &quot;deer&quot;, &quot;score&quot;: 0.011, &quot;bbox&quot;: [5.05, 4.82, 20.96, 21.0]}, {&quot;category_id&quot;: 6, &quot;category&quot;: &quot;dog&quot;, &quot;score&quot;: 0.011, &quot;bbox&quot;: [4.95, 4.88, 20.95, 21.03]}, {&quot;category_id&quot;: 8, &quot;category&quot;: &quot;horse&quot;, &quot;score&quot;: 0.01, &quot;bbox&quot;: [5.13, 5.12, 20.9, 20.9]}][{&quot;category_id&quot;: 2, &quot;category&quot;: &quot;car&quot;, &quot;score&quot;: 0.271, &quot;bbox&quot;: [4.9, 4.9, 21.06, 20.93]}, {&quot;category_id&quot;: 10, &quot;category&quot;: &quot;truck&quot;, &quot;score&quot;: 0.026, &quot;bbox&quot;: [4.93, 4.62, 21.16, 21.05]}, {&quot;category_id&quot;: 9, &quot;category&quot;: &quot;ship&quot;, &quot;score&quot;: 0.015, &quot;bbox&quot;: [5.09, 4.93, 20.91, 21.06]}, {&quot;category_id&quot;: 1, &quot;category&quot;: &quot;plane&quot;, &quot;score&quot;: 0.013, &quot;bbox&quot;: [4.92, 4.97, 21.0, 20.96]}, {&quot;category_id&quot;: 8, &quot;category&quot;: &quot;horse&quot;, &quot;score&quot;: 0.011, &quot;bbox&quot;: [4.95, 4.85, 20.82, 21.04]}][{&quot;category_id&quot;: 9, &quot;category&quot;: &quot;ship&quot;, &quot;score&quot;: 0.193, &quot;bbox&quot;: [4.89, 4.98, 20.9, 21.0]}, {&quot;category_id&quot;: 10, &quot;category&quot;: &quot;truck&quot;, &quot;score&quot;: 0.019, &quot;bbox&quot;: [5.04, 5.02, 20.93, 20.94]}, {&quot;category_id&quot;: 1, &quot;category&quot;: &quot;plane&quot;, &quot;score&quot;: 0.018, &quot;bbox&quot;: [5.11, 4.99, 20.9, 20.92]}, {&quot;category_id&quot;: 2, &quot;category&quot;: &quot;car&quot;, &quot;score&quot;: 0.018, &quot;bbox&quot;: [5.14, 5.06, 20.96, 20.97]}, {&quot;category_id&quot;: 8, &quot;category&quot;: &quot;horse&quot;, &quot;score&quot;: 0.011, &quot;bbox&quot;: [5.06, 4.96, 21.02, 21.03]}, {&quot;category_id&quot;: 3, &quot;category&quot;: &quot;bird&quot;, &quot;score&quot;: 0.011, &quot;bbox&quot;: [5.13, 4.85, 21.06, 21.02]}][{&quot;category_id&quot;: 10, &quot;category&quot;: &quot;truck&quot;, &quot;score&quot;: 0.197, &quot;bbox&quot;: [5.23, 5.17, 20.92, 20.9]}, {&quot;category_id&quot;: 2, &quot;category&quot;: &quot;car&quot;, &quot;score&quot;: 0.017, &quot;bbox&quot;: [5.09, 5.11, 20.93, 20.92]}, {&quot;category_id&quot;: 8, &quot;category&quot;: &quot;horse&quot;, &quot;score&quot;: 0.015, &quot;bbox&quot;: [5.13, 4.91, 20.96, 21.01]}, {&quot;category_id&quot;: 1, &quot;category&quot;: &quot;plane&quot;, &quot;score&quot;: 0.015, &quot;bbox&quot;: [5.05, 4.98, 20.99, 20.99]}, {&quot;category_id&quot;: 9, &quot;category&quot;: &quot;ship&quot;, &quot;score&quot;: 0.015, &quot;bbox&quot;: [5.11, 5.09, 20.94, 20.97]}, {&quot;category_id&quot;: 4, &quot;category&quot;: &quot;cat&quot;, &quot;score&quot;: 0.014, &quot;bbox&quot;: [5.01, 5.06, 20.98, 20.96]}, {&quot;category_id&quot;: 6, &quot;category&quot;: &quot;dog&quot;, &quot;score&quot;: 0.014, &quot;bbox&quot;: [5.03, 4.92, 20.89, 21.03]}, {&quot;category_id&quot;: 3, &quot;category&quot;: &quot;bird&quot;, &quot;score&quot;: 0.012, &quot;bbox&quot;: [5.01, 4.97, 21.0, 21.11]}, {&quot;category_id&quot;: 5, &quot;category&quot;: &quot;deer&quot;, &quot;score&quot;: 0.011, &quot;bbox&quot;: [4.92, 4.84, 21.07, 21.15]}, {&quot;category_id&quot;: 7, &quot;category&quot;: &quot;frog&quot;, &quot;score&quot;: 0.011, &quot;bbox&quot;: [5.0, 5.08, 21.01, 20.95]}]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[{&quot;category_id&quot;: 1, &quot;category&quot;: &quot;plane&quot;, &quot;score&quot;: 0.232, &quot;bbox&quot;: [5.19, 4.92, 20.98, 20.86]}, {&quot;category_id&quot;: 9, &quot;category&quot;: &quot;ship&quot;, &quot;score&quot;: 0.021, &quot;bbox&quot;: [5.03, 5.0, 20.91, 20.99]}, {&quot;category_id&quot;: 3, &quot;category&quot;: &quot;bird&quot;, &quot;score&quot;: 0.015, &quot;bbox&quot;: [4.81, 4.76, 20.97, 21.04]}, {&quot;category_id&quot;: 5, &quot;category&quot;: &quot;deer&quot;, &quot;score&quot;: 0.012, &quot;bbox&quot;: [4.93, 5.08, 20.93, 20.97]}, {&quot;category_id&quot;: 4, &quot;category&quot;: &quot;cat&quot;, &quot;score&quot;: 0.011, &quot;bbox&quot;: [4.86, 4.93, 21.01, 20.94]}, {&quot;category_id&quot;: 10, &quot;category&quot;: &quot;truck&quot;, &quot;score&quot;: 0.011, &quot;bbox&quot;: [4.91, 4.93, 21.06, 21.0]}, {&quot;category_id&quot;: 2, &quot;category&quot;: &quot;car&quot;, &quot;score&quot;: 0.01, &quot;bbox&quot;: [4.92, 4.87, 21.03, 21.02]}][{&quot;category_id&quot;: 2, &quot;category&quot;: &quot;car&quot;, &quot;score&quot;: 0.276, &quot;bbox&quot;: [5.32, 5.21, 20.84, 20.66]}, {&quot;category_id&quot;: 10, &quot;category&quot;: &quot;truck&quot;, &quot;score&quot;: 0.026, &quot;bbox&quot;: [4.45, 5.62, 21.2, 21.05]}, {&quot;category_id&quot;: 8, &quot;category&quot;: &quot;horse&quot;, &quot;score&quot;: 0.013, &quot;bbox&quot;: [4.83, 5.11, 21.0, 21.04]}, {&quot;category_id&quot;: 9, &quot;category&quot;: &quot;ship&quot;, &quot;score&quot;: 0.012, &quot;bbox&quot;: [4.79, 5.71, 21.0, 21.18]}, {&quot;category_id&quot;: 4, &quot;category&quot;: &quot;cat&quot;, &quot;score&quot;: 0.011, &quot;bbox&quot;: [5.1, 5.04, 20.98, 20.88]}][{&quot;category_id&quot;: 9, &quot;category&quot;: &quot;ship&quot;, &quot;score&quot;: 0.208, &quot;bbox&quot;: [4.98, 4.96, 20.78, 20.9]}, {&quot;category_id&quot;: 1, &quot;category&quot;: &quot;plane&quot;, &quot;score&quot;: 0.019, &quot;bbox&quot;: [5.0, 4.86, 20.94, 21.02]}, {&quot;category_id&quot;: 2, &quot;category&quot;: &quot;car&quot;, &quot;score&quot;: 0.017, &quot;bbox&quot;: [4.82, 5.1, 21.11, 21.02]}, {&quot;category_id&quot;: 10, &quot;category&quot;: &quot;truck&quot;, &quot;score&quot;: 0.016, &quot;bbox&quot;: [4.95, 5.2, 20.98, 21.03]}, {&quot;category_id&quot;: 3, &quot;category&quot;: &quot;bird&quot;, &quot;score&quot;: 0.014, &quot;bbox&quot;: [4.91, 4.92, 20.88, 20.84]}, {&quot;category_id&quot;: 8, &quot;category&quot;: &quot;horse&quot;, &quot;score&quot;: 0.011, &quot;bbox&quot;: [5.03, 5.06, 20.94, 20.9]}, {&quot;category_id&quot;: 5, &quot;category&quot;: &quot;deer&quot;, &quot;score&quot;: 0.011, &quot;bbox&quot;: [5.01, 5.2, 21.0, 20.82]}, {&quot;category_id&quot;: 4, &quot;category&quot;: &quot;cat&quot;, &quot;score&quot;: 0.011, &quot;bbox&quot;: [5.11, 5.07, 20.96, 20.93]}][{&quot;category_id&quot;: 10, &quot;category&quot;: &quot;truck&quot;, &quot;score&quot;: 0.209, &quot;bbox&quot;: [5.27, 5.08, 20.98, 20.8]}, {&quot;category_id&quot;: 2, &quot;category&quot;: &quot;car&quot;, &quot;score&quot;: 0.02, &quot;bbox&quot;: [5.14, 4.92, 20.86, 20.88]}, {&quot;category_id&quot;: 8, &quot;category&quot;: &quot;horse&quot;, &quot;score&quot;: 0.015, &quot;bbox&quot;: [5.01, 4.92, 20.93, 20.96]}, {&quot;category_id&quot;: 9, &quot;category&quot;: &quot;ship&quot;, &quot;score&quot;: 0.014, &quot;bbox&quot;: [5.13, 5.17, 20.96, 20.96]}, {&quot;category_id&quot;: 1, &quot;category&quot;: &quot;plane&quot;, &quot;score&quot;: 0.014, &quot;bbox&quot;: [5.06, 5.12, 20.98, 20.99]}, {&quot;category_id&quot;: 4, &quot;category&quot;: &quot;cat&quot;, &quot;score&quot;: 0.014, &quot;bbox&quot;: [4.91, 5.13, 20.99, 21.02]}, {&quot;category_id&quot;: 6, &quot;category&quot;: &quot;dog&quot;, &quot;score&quot;: 0.013, &quot;bbox&quot;: [4.92, 4.97, 21.0, 21.1]}, {&quot;category_id&quot;: 3, &quot;category&quot;: &quot;bird&quot;, &quot;score&quot;: 0.011, &quot;bbox&quot;: [4.96, 5.07, 21.02, 21.0]}, {&quot;category_id&quot;: 7, &quot;category&quot;: &quot;frog&quot;, &quot;score&quot;: 0.011, &quot;bbox&quot;: [4.83, 5.03, 21.05, 21.02]}]
 </pre></div>
 </div>
 </div>
@@ -521,7 +522,8 @@ INFO:__main__:batch 3: images/cifar10_truck8.png
     <span class="n">openpifpaf</span><span class="o">.</span><span class="n">transforms</span><span class="o">.</span><span class="n">EVAL_TRANSFORM</span><span class="p">,</span>
 <span class="p">])</span>
 
-<span class="n">openpifpaf</span><span class="o">.</span><span class="n">decoder</span><span class="o">.</span><span class="n">CifDetSeeds</span><span class="o">.</span><span class="n">threshold</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="n">openpifpaf</span><span class="o">.</span><span class="n">decoder</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">CifDetSeeds</span><span class="o">.</span><span class="n">threshold</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="n">openpifpaf</span><span class="o">.</span><span class="n">decoder</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">nms</span><span class="o">.</span><span class="n">Detection</span><span class="o">.</span><span class="n">instance_threshold</span> <span class="o">=</span> <span class="mf">0.1</span>
 <span class="n">decode</span> <span class="o">=</span> <span class="n">openpifpaf</span><span class="o">.</span><span class="n">decoder</span><span class="o">.</span><span class="n">factory</span><span class="p">([</span><span class="n">hn</span><span class="o">.</span><span class="n">meta</span> <span class="k">for</span> <span class="n">hn</span> <span class="ow">in</span> <span class="n">net_cpu</span><span class="o">.</span><span class="n">head_nets</span><span class="p">])</span>
 
 <span class="n">data</span> <span class="o">=</span> <span class="n">openpifpaf</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">ImageList</span><span class="p">([</span>
@@ -538,19 +540,19 @@ INFO:__main__:batch 3: images/cifar10_truck8.png
 </div>
 <div class="cell_output docutils container">
 <img alt="_images/plugins_cifar10_15_0.png" src="_images/plugins_cifar10_15_0.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;plane 23%&#39;, &#39;ship 2%&#39;, &#39;bird 2%&#39;, &#39;truck 1%&#39;, &#39;cat 1%&#39;, &#39;deer 1%&#39;, &#39;dog 1%&#39;, &#39;horse 1%&#39;]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;plane 23%&#39;]
 </pre></div>
 </div>
 <img alt="_images/plugins_cifar10_15_2.png" src="_images/plugins_cifar10_15_2.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;car 27%&#39;, &#39;truck 3%&#39;, &#39;ship 1%&#39;, &#39;plane 1%&#39;, &#39;horse 1%&#39;]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;car 28%&#39;]
 </pre></div>
 </div>
 <img alt="_images/plugins_cifar10_15_4.png" src="_images/plugins_cifar10_15_4.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;ship 19%&#39;, &#39;truck 2%&#39;, &#39;plane 2%&#39;, &#39;car 2%&#39;, &#39;horse 1%&#39;, &#39;bird 1%&#39;]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;ship 21%&#39;]
 </pre></div>
 </div>
 <img alt="_images/plugins_cifar10_15_6.png" src="_images/plugins_cifar10_15_6.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;truck 20%&#39;, &#39;car 2%&#39;, &#39;horse 2%&#39;, &#39;plane 2%&#39;, &#39;ship 1%&#39;, &#39;cat 1%&#39;, &#39;dog 1%&#39;, &#39;bird 1%&#39;, &#39;deer 1%&#39;, &#39;frog 1%&#39;]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;truck 21%&#39;]
 </pre></div>
 </div>
 </div>
@@ -562,7 +564,7 @@ INFO:__main__:batch 3: images/cifar10_truck8.png
 <p>Therefore, we should run a proper quantitative evaluation with <code class="docutils literal notranslate"><span class="pre">openpifpaf.eval</span></code>. It stores its output as a json file, so we print that afterwards.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>python -m openpifpaf.eval --checkpoint cifar10_tutorial.pkl.epoch001 --dataset<span class="o">=</span>cifar10 --quiet
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>python -m openpifpaf.eval --checkpoint cifar10_tutorial.pkl.epoch001 --dataset<span class="o">=</span>cifar10 --seed-threshold<span class="o">=</span><span class="m">0</span>.1 --instance-threshold<span class="o">=</span><span class="m">0</span>.1 --quiet
 </pre></div>
 </div>
 </div>
@@ -599,20 +601,20 @@ INFO:__main__:batch 3: images/cifar10_truck8.png
         &quot;truck&quot;
     ],
     &quot;stats&quot;: [
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0
+        0.3672,
+        0.449,
+        0.716,
+        0.171,
+        0.298,
+        0.345,
+        0.133,
+        0.494,
+        0.24,
+        0.614,
+        0.212
     ],
     &quot;dataset&quot;: &quot;cifar10&quot;,
-    &quot;total_time&quot;: 20.72272801399231,
+    &quot;total_time&quot;: 27.983150243759155,
     &quot;checkpoint&quot;: &quot;cifar10_tutorial.pkl.epoch001&quot;,
     &quot;count_ops&quot;: [
         427119430.0,
@@ -620,14 +622,14 @@ INFO:__main__:batch 3: images/cifar10_truck8.png
     ],
     &quot;file_size&quot;: 436233,
     &quot;n_images&quot;: 10000,
-    &quot;decoder_time&quot;: 8.136519614999884,
-    &quot;nn_time&quot;: 10.5298125209992
+    &quot;decoder_time&quot;: 14.309732706000887,
+    &quot;nn_time&quot;: 11.208336569000096
 }
 </pre></div>
 </div>
 </div>
 </div>
-<p>We see that some categories like “plane”, “car” and “ship” are learned quickly whereas as others are learned poorly (e.g. “cat” and “frog”). The poor performance is not surprising as we trained our network for a single epoch only.</p>
+<p>We see that some categories like “plane”, “car” and “ship” are learned quickly whereas as others are learned poorly (e.g. “bird”). The poor performance is not surprising as we trained our network for a single epoch only.</p>
 </div>
 </div>
 
