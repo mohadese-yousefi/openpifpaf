@@ -586,14 +586,18 @@ an arbitrary number of entries with corresponding labels:</p>
 
 <dl class="py method">
 <dt id="openpifpaf.metric.Base.write_predictions">
-<code class="sig-name descname">write_predictions</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">filename</span></em><span class="sig-paren">)</span><a class="headerlink" href="#openpifpaf.metric.Base.write_predictions" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">write_predictions</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">filename</span></em>, <em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">additional_data</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#openpifpaf.metric.Base.write_predictions" title="Permalink to this definition">¶</a></dt>
 <dd><p>Write predictions to a file.</p>
 <p>This is used to produce a metric-compatible output of predictions.
 It is used for test challenge submissions where a remote server
 holds the private test set.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>filename</strong> – Output filename of prediction file.</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>filename</strong> – Output filename of prediction file.</p></li>
+<li><p><strong>additional_data</strong> – Additional information that might be worth saving
+along with the predictions.</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
