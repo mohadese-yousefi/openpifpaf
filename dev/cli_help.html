@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 
 <html>
@@ -7,9 +6,26 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CLI --help &#8212; OpenPifPaf Guide DEV</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
-    <link href="_static/css/index.css" rel="stylesheet">
-    <link rel="stylesheet" href="_static/sphinx-book-theme.css" type="text/css" />
+    
+  <link rel="stylesheet" href="_static/css/index.d431a4ee1c1efae0e38bdfebc22debff.css">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="_static/sphinx-book-theme.bfb7730f9caf2ec0b46a44615585038c.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
@@ -17,6 +33,9 @@
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.30270b6e4c972e43c488.js">
+
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
@@ -25,8 +44,8 @@
     <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
@@ -42,8 +61,8 @@
     <link rel="next" title="Examples" href="examples.html" />
     <link rel="prev" title="Prediction" href="predict_cli.html" />
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="docsearch:language" content="en">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
 
 
 
@@ -273,6 +292,7 @@
 
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
+        
         <div class="tocsection onthispage pt-5 pb-3">
             <i class="fas fa-list"></i> Contents
         </div>
@@ -316,6 +336,7 @@
 </ul>
 
         </nav>
+        
     </div>
 </div>
     <div id="main-content" class="row">
@@ -347,19 +368,20 @@
                                      [--force-complete-pose]
                                      [--keypoint-threshold KEYPOINT_THRESHOLD]
                                      [--greedy]
-                                     [--connection-method {max,blend}] [-q]
-                                     [--debug] [--log-stats]
+                                     [--connection-method {max,blend}]
+                                     [--dense-connections [DENSE_CONNECTIONS]]
+                                     [-q] [--debug] [--log-stats]
+                                     [--shufflenetv2-no-pretrain]
+                                     [--shufflenetv2k-input-conv2-stride SHUFFLENETV2K_INPUT_CONV2_STRIDE]
+                                     [--shufflenetv2k-input-conv2-outchannels SHUFFLENETV2K_INPUT_CONV2_OUTCHANNELS]
+                                     [--shufflenetv2k-stage4-dilation SHUFFLENETV2K_STAGE4_DILATION]
+                                     [--shufflenetv2k-instance-norm | --shufflenetv2k-group-norm]
                                      [--resnet-no-pretrain]
                                      [--resnet-pool0-stride RESNET_POOL0_STRIDE]
                                      [--resnet-input-conv-stride RESNET_INPUT_CONV_STRIDE]
                                      [--resnet-input-conv2-stride RESNET_INPUT_CONV2_STRIDE]
                                      [--resnet-block5-dilation RESNET_BLOCK5_DILATION]
                                      [--resnet-remove-last-block]
-                                     [--shufflenetv2-no-pretrain]
-                                     [--shufflenetv2k-input-conv2-stride SHUFFLENETV2K_INPUT_CONV2_STRIDE]
-                                     [--shufflenetv2k-input-conv2-outchannels SHUFFLENETV2K_INPUT_CONV2_OUTCHANNELS]
-                                     [--shufflenetv2k-stage4-dilation SHUFFLENETV2K_STAGE4_DILATION]
-                                     [--shufflenetv2k-instance-norm | --shufflenetv2k-group-norm]
                                      [--cf3-dropout CF3_DROPOUT]
                                      [--cf3-no-inplace-ops]
                                      [--checkpoint CHECKPOINT]
@@ -367,7 +389,6 @@
                                      [--multi-scale] [--no-multi-scale-hflip]
                                      [--cross-talk CROSS_TALK]
                                      [--no-download-progress]
-                                     [--dense-coupling DENSE_COUPLING]
                                      [--head-consolidation {keep,create,filter_and_extend}]
                                      [--save-all [SAVE_ALL]] [--show]
                                      [--figure-width FIGURE_WIDTH]
@@ -445,26 +466,12 @@ CifCaf decoder:
   --connection-method {max,blend}
                         connection method to use, max is faster (default:
                         blend)
+  --dense-connections [DENSE_CONNECTIONS]
 
 logger:
   -q, --quiet           only show warning messages or above (default: False)
   --debug               print debug messages (default: False)
   --log-stats           enable stats logging (default: False)
-
-ResNet:
-  --resnet-no-pretrain  use randomly initialized models (default: True)
-  --resnet-pool0-stride RESNET_POOL0_STRIDE
-                        stride of zero removes the pooling op (default: 0)
-  --resnet-input-conv-stride RESNET_INPUT_CONV_STRIDE
-                        stride of the input convolution (default: 2)
-  --resnet-input-conv2-stride RESNET_INPUT_CONV2_STRIDE
-                        stride of the optional 2nd input convolution (default:
-                        0)
-  --resnet-block5-dilation RESNET_BLOCK5_DILATION
-                        use dilated convs in block5 (default: 1)
-  --resnet-remove-last-block
-                        create a network without the last block (default:
-                        False)
 
 ShuffleNetv2:
   --shufflenetv2-no-pretrain
@@ -481,6 +488,21 @@ shufflenetv2k:
                         dilation factor of stage 4 (default: 1)
   --shufflenetv2k-instance-norm
   --shufflenetv2k-group-norm
+
+ResNet:
+  --resnet-no-pretrain  use randomly initialized models (default: True)
+  --resnet-pool0-stride RESNET_POOL0_STRIDE
+                        stride of zero removes the pooling op (default: 0)
+  --resnet-input-conv-stride RESNET_INPUT_CONV_STRIDE
+                        stride of the input convolution (default: 2)
+  --resnet-input-conv2-stride RESNET_INPUT_CONV2_STRIDE
+                        stride of the optional 2nd input convolution (default:
+                        0)
+  --resnet-block5-dilation RESNET_BLOCK5_DILATION
+                        use dilated convs in block5 (default: 1)
+  --resnet-remove-last-block
+                        create a network without the last block (default:
+                        False)
 
 CompositeField3:
   --cf3-dropout CF3_DROPOUT
@@ -502,8 +524,6 @@ network configuration:
                         [experimental] (default: 0.0)
   --no-download-progress
                         suppress model download progress bar (default: True)
-  --dense-coupling DENSE_COUPLING
-                        dense coupling (default: 0.0)
   --head-consolidation {keep,create,filter_and_extend}
                         consolidation strategy for a checkpoint&#39;s head
                         networks and the heads specified by the datamodule
@@ -557,7 +577,6 @@ pose visualizer:
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>usage: python3 -m openpifpaf.video [-h] [--version]
-                                   [--shufflenetv2-no-pretrain]
                                    [--shufflenetv2k-input-conv2-stride SHUFFLENETV2K_INPUT_CONV2_STRIDE]
                                    [--shufflenetv2k-input-conv2-outchannels SHUFFLENETV2K_INPUT_CONV2_OUTCHANNELS]
                                    [--shufflenetv2k-stage4-dilation SHUFFLENETV2K_STAGE4_DILATION]
@@ -568,6 +587,7 @@ pose visualizer:
                                    [--resnet-input-conv2-stride RESNET_INPUT_CONV2_STRIDE]
                                    [--resnet-block5-dilation RESNET_BLOCK5_DILATION]
                                    [--resnet-remove-last-block]
+                                   [--shufflenetv2-no-pretrain]
                                    [--cf3-dropout CF3_DROPOUT]
                                    [--cf3-no-inplace-ops]
                                    [--checkpoint CHECKPOINT]
@@ -575,7 +595,6 @@ pose visualizer:
                                    [--multi-scale] [--no-multi-scale-hflip]
                                    [--cross-talk CROSS_TALK]
                                    [--no-download-progress]
-                                   [--dense-coupling DENSE_COUPLING]
                                    [--head-consolidation {keep,create,filter_and_extend}]
                                    [--decoder {cifdet,cifcaf} [{cifdet,cifcaf} ...]]
                                    [--seed-threshold SEED_THRESHOLD]
@@ -587,8 +606,9 @@ pose visualizer:
                                    [--force-complete-pose]
                                    [--keypoint-threshold KEYPOINT_THRESHOLD]
                                    [--greedy]
-                                   [--connection-method {max,blend}] [-q]
-                                   [--debug] [--log-stats]
+                                   [--connection-method {max,blend}]
+                                   [--dense-connections [DENSE_CONNECTIONS]]
+                                   [-q] [--debug] [--log-stats]
                                    [--save-all [SAVE_ALL]] [--show]
                                    [--figure-width FIGURE_WIDTH]
                                    [--image-dpi-factor IMAGE_DPI_FACTOR]
@@ -660,10 +680,6 @@ optional arguments:
                         left top right bottom (default: None)
   --rotate {left,right,180}
 
-ShuffleNetv2:
-  --shufflenetv2-no-pretrain
-                        use randomly initialized models (default: True)
-
 shufflenetv2k:
   --shufflenetv2k-input-conv2-stride SHUFFLENETV2K_INPUT_CONV2_STRIDE
                         stride of the optional 2nd input convolution (default:
@@ -691,6 +707,10 @@ ResNet:
                         create a network without the last block (default:
                         False)
 
+ShuffleNetv2:
+  --shufflenetv2-no-pretrain
+                        use randomly initialized models (default: True)
+
 CompositeField3:
   --cf3-dropout CF3_DROPOUT
                         [experimental] zeroing probability of feature in head
@@ -711,8 +731,6 @@ network configuration:
                         [experimental] (default: 0.0)
   --no-download-progress
                         suppress model download progress bar (default: True)
-  --dense-coupling DENSE_COUPLING
-                        dense coupling (default: 0.0)
   --head-consolidation {keep,create,filter_and_extend}
                         consolidation strategy for a checkpoint&#39;s head
                         networks and the heads specified by the datamodule
@@ -744,6 +762,7 @@ CifCaf decoder:
   --connection-method {max,blend}
                         connection method to use, max is faster (default:
                         blend)
+  --dense-connections [DENSE_CONNECTIONS]
 
 logger:
   -q, --quiet           only show warning messages or above (default: False)
@@ -798,17 +817,18 @@ pose visualizer:
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>usage: python3 -m openpifpaf.train [-h] [--version] [-q] [--debug]
-                                   [--log-stats] [--resnet-no-pretrain]
+                                   [--log-stats]
+                                   [--shufflenetv2k-input-conv2-stride SHUFFLENETV2K_INPUT_CONV2_STRIDE]
+                                   [--shufflenetv2k-input-conv2-outchannels SHUFFLENETV2K_INPUT_CONV2_OUTCHANNELS]
+                                   [--shufflenetv2k-stage4-dilation SHUFFLENETV2K_STAGE4_DILATION]
+                                   [--shufflenetv2k-instance-norm | --shufflenetv2k-group-norm]
+                                   [--resnet-no-pretrain]
                                    [--resnet-pool0-stride RESNET_POOL0_STRIDE]
                                    [--resnet-input-conv-stride RESNET_INPUT_CONV_STRIDE]
                                    [--resnet-input-conv2-stride RESNET_INPUT_CONV2_STRIDE]
                                    [--resnet-block5-dilation RESNET_BLOCK5_DILATION]
                                    [--resnet-remove-last-block]
                                    [--shufflenetv2-no-pretrain]
-                                   [--shufflenetv2k-input-conv2-stride SHUFFLENETV2K_INPUT_CONV2_STRIDE]
-                                   [--shufflenetv2k-input-conv2-outchannels SHUFFLENETV2K_INPUT_CONV2_OUTCHANNELS]
-                                   [--shufflenetv2k-stage4-dilation SHUFFLENETV2K_STAGE4_DILATION]
-                                   [--shufflenetv2k-instance-norm | --shufflenetv2k-group-norm]
                                    [--cf3-dropout CF3_DROPOUT]
                                    [--cf3-no-inplace-ops]
                                    [--checkpoint CHECKPOINT]
@@ -816,7 +836,6 @@ pose visualizer:
                                    [--multi-scale] [--no-multi-scale-hflip]
                                    [--cross-talk CROSS_TALK]
                                    [--no-download-progress]
-                                   [--dense-coupling DENSE_COUPLING]
                                    [--head-consolidation {keep,create,filter_and_extend}]
                                    [--lambdas LAMBDAS [LAMBDAS ...]]
                                    [--r-smooth R_SMOOTH]
@@ -932,6 +951,18 @@ logger:
   --debug               print debug messages (default: False)
   --log-stats           enable stats logging (default: False)
 
+shufflenetv2k:
+  --shufflenetv2k-input-conv2-stride SHUFFLENETV2K_INPUT_CONV2_STRIDE
+                        stride of the optional 2nd input convolution (default:
+                        0)
+  --shufflenetv2k-input-conv2-outchannels SHUFFLENETV2K_INPUT_CONV2_OUTCHANNELS
+                        out channels of the optional 2nd input convolution
+                        (default: None)
+  --shufflenetv2k-stage4-dilation SHUFFLENETV2K_STAGE4_DILATION
+                        dilation factor of stage 4 (default: 1)
+  --shufflenetv2k-instance-norm
+  --shufflenetv2k-group-norm
+
 ResNet:
   --resnet-no-pretrain  use randomly initialized models (default: True)
   --resnet-pool0-stride RESNET_POOL0_STRIDE
@@ -950,18 +981,6 @@ ResNet:
 ShuffleNetv2:
   --shufflenetv2-no-pretrain
                         use randomly initialized models (default: True)
-
-shufflenetv2k:
-  --shufflenetv2k-input-conv2-stride SHUFFLENETV2K_INPUT_CONV2_STRIDE
-                        stride of the optional 2nd input convolution (default:
-                        0)
-  --shufflenetv2k-input-conv2-outchannels SHUFFLENETV2K_INPUT_CONV2_OUTCHANNELS
-                        out channels of the optional 2nd input convolution
-                        (default: None)
-  --shufflenetv2k-stage4-dilation SHUFFLENETV2K_STAGE4_DILATION
-                        dilation factor of stage 4 (default: 1)
-  --shufflenetv2k-instance-norm
-  --shufflenetv2k-group-norm
 
 CompositeField3:
   --cf3-dropout CF3_DROPOUT
@@ -983,8 +1002,6 @@ network configuration:
                         [experimental] (default: 0.0)
   --no-download-progress
                         suppress model download progress bar (default: True)
-  --dense-coupling DENSE_COUPLING
-                        dense coupling (default: 0.0)
   --head-consolidation {keep,create,filter_and_extend}
                         consolidation strategy for a checkpoint&#39;s head
                         networks and the heads specified by the datamodule
@@ -1374,7 +1391,10 @@ show:
       </div>
     </div>
 
-    <script src="_static/js/index.js"></script>
+    
+  <script src="_static/js/index.30270b6e4c972e43c488.js"></script>
+
+
     
   </body>
 </html>
