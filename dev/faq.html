@@ -304,6 +304,11 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#installation-problem">
+   Installation Problem
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#matplotlib-backend">
    Matplotlib Backend
   </a>
@@ -338,6 +343,14 @@
 Let’s start with an example: a single layer of a 3x3 conv with stride 2 that is padded with 1. For an output feature map of size 2x2, the input must be of size 3x3. This generalization holds: the input must be of size <code class="docutils literal notranslate"><span class="pre">(nx</span> <span class="pre">*</span> <span class="pre">stride</span> <span class="pre">+</span> <span class="pre">1,</span> <span class="pre">ny</span> <span class="pre">*</span> <span class="pre">stride</span> <span class="pre">+</span> <span class="pre">1)</span></code>.
 The models that OpenPifPaf uses have an intermediate layer with stride 16. Therefore, good input image sizes are multiples of 16 plus 1.</p>
 <p>It is usually not a problem if the input size is not perfect. There will just be a small margin on the right side and bottom of the image that is not “covered” by a feature map cell.</p>
+</div>
+<div class="section" id="installation-problem">
+<h2>Installation Problem<a class="headerlink" href="#installation-problem" title="Permalink to this headline">¶</a></h2>
+<p>This project uses continuous integration testing (CI). That means that a set of unit and integration tests is run on multiple versions of Linux, on MacOSX and on Windows for every code change. The result of these tests is here:
+<a class="reference external" href="https://travis-ci.org/github/vita-epfl/openpifpaf/branches">TravisCI</a> –&gt; click on the latest test for the master branch to see something like this:
+<img alt="travis tests" src="_images/travistests.png" />
+You can click on a “build job” to see its terminal output. The terminal output shows all steps from cloning the repository, installing PyTorch, installing OpenPifPaf to running linting and the actual tests.</p>
+<p>If you think the list of platforms and Python versions is outdated and you want a particular combination be added to this list, please file a GitHub issue.</p>
 </div>
 <div class="section" id="matplotlib-backend">
 <h2>Matplotlib Backend<a class="headerlink" href="#matplotlib-backend" title="Permalink to this headline">¶</a></h2>

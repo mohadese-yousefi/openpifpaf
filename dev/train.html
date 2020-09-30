@@ -299,6 +299,11 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#training-crop-size">
+   Training Crop Size
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#shufflenet">
    ShuffleNet
   </a>
@@ -344,6 +349,12 @@ For training, you will need a dataset. See <a class="reference internal" href="d
 <p>A quick way to get started is with the training commands of the pre-trained models.
 The exact training command that was used for a model is in the first
 line of the training log file. Below are a few examples for various backbones.</p>
+<div class="section" id="training-crop-size">
+<h2>Training Crop Size<a class="headerlink" href="#training-crop-size" title="Permalink to this headline">¶</a></h2>
+<p>Training and evaluation image sizes are <em>unrelated</em> in fully convolutional architectures like OpenPifPaf. <em>Instance size distribution</em> between training and evaluation needs to be preserved. The size of the image that surrounds the instance to detect has little impact: for humans of height 100px, it does not matter whether that is inside a <span class="math notranslate nohighlight">\(640\times480\)</span> image or inside a 4k or 8k image. Therefore, you can keep the size of your training crops (selected with <code class="docutils literal notranslate"><span class="pre">--square-edge</span></code>) quite small even when evaluating on large images. The default is <code class="docutils literal notranslate"><span class="pre">--square-edge=385</span></code> for <code class="docutils literal notranslate"><span class="pre">cocokp</span></code> and that is reasonable when most of the humans are not larger than 300px during evaluation.
+<img alt="training crop size" src="_images/trainingcrop.png" /></p>
+<p>The training crop size is a major factor for GPU memory consumption and for training time.</p>
+</div>
 <div class="section" id="shufflenet">
 <h2>ShuffleNet<a class="headerlink" href="#shufflenet" title="Permalink to this headline">¶</a></h2>
 <p>ShuffleNet models are trained without ImageNet pretraining:</p>
@@ -384,9 +395,9 @@ That makes their training characteristics different from ShuffleNet (i.e. they l
 </div>
 <div class="section" id="debug-plots">
 <h2>Debug Plots<a class="headerlink" href="#debug-plots" title="Permalink to this headline">¶</a></h2>
+<p>As for all commands, you need to decide whether you want to interactively show the plots in matplotlib with <code class="docutils literal notranslate"><span class="pre">--show</span></code> (I use <a class="reference external" href="https://github.com/daleroberts/itermplot">itermplot</a>) or to save image files with <code class="docutils literal notranslate"><span class="pre">--save-all</span></code> (defaults to the <code class="docutils literal notranslate"><span class="pre">all-images/</span></code> directory).</p>
 <p>You can inspect the ground truth fields that are used for training. Add <code class="docutils literal notranslate"><span class="pre">--debug-images</span></code> to activate all types of debug plots and, for example, select to visualize field 5 of CIF and field 5 of CAF with <code class="docutils literal notranslate"><span class="pre">--debug-indices</span> <span class="pre">cif:5</span> <span class="pre">caf:5</span></code>.</p>
-<p>You can run this on your laptop without a GPU. When debug is enabled, the training dataset is not randomized and therefore you only need the first few images in your dataset locally. You need to be able to see matplotlib outputs. I use <a class="reference external" href="https://github.com/daleroberts/itermplot">itermplot</a>.</p>
-<p>You can also inspect debug outputs directly in a Jupyter notebook. Example code is in <a class="reference internal" href="plugins_cifar10.html"><span class="doc">Cifar10</span></a>.</p>
+<p>You can run this on your laptop without a GPU. When debug is enabled, the training dataset is not randomized and therefore you only need the first few images in your dataset locally.</p>
 </div>
 <div class="section" id="logs">
 <h2>Logs<a class="headerlink" href="#logs" title="Permalink to this headline">¶</a></h2>
@@ -402,7 +413,7 @@ That makes their training characteristics different from ShuffleNet (i.e. they l
 checkpoints every 5 minutes:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> true<span class="p">;</span> <span class="k">do</span> <span class="se">\</span>
   <span class="nv">CUDA_VISIBLE_DEVICES</span><span class="o">=</span><span class="m">0</span> find outputs/ -name <span class="s2">&quot;shufflenetv2k16w-200912-123456-cocokp.pkl.epoch??[0,5]&quot;</span> -exec <span class="se">\</span>
-    python3 -m openpifpaf.eval --dataset<span class="o">=</span>cocokp --checkpoint <span class="o">{}</span> --coco-eval-long-edge<span class="o">=</span><span class="m">641</span> --skip-existing <span class="se">\;</span> <span class="se">\</span>
+    python3 -m openpifpaf.eval --dataset<span class="o">=</span>cocokp --checkpoint <span class="o">{}</span> --skip-existing --force-complete-pose --seed-threshold<span class="o">=</span><span class="m">0</span>.2 <span class="se">\;</span> <span class="se">\</span>
   <span class="p">;</span> <span class="se">\</span>
   sleep <span class="m">300</span><span class="p">;</span> <span class="se">\</span>
 <span class="k">done</span>
