@@ -317,11 +317,11 @@ For more accurate results, try <code class="docutils literal notranslate"><span 
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/site-packages/torch/serialization.py:649: SourceChangeWarning: source code of class &#39;openpifpaf.network.nets.Shell&#39; has changed. you can retrieve the original source code by accessing the object&#39;s source attribute or set `torch.nn.Module.dump_patches = True` and use the patch tool to revert the changes.
   warnings.warn(msg, SourceChangeWarning)
+/opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/site-packages/torch/serialization.py:649: SourceChangeWarning: source code of class &#39;torch.nn.modules.container.Sequential&#39; has changed. you can retrieve the original source code by accessing the object&#39;s source attribute or set `torch.nn.Module.dump_patches = True` and use the patch tool to revert the changes.
+  warnings.warn(msg, SourceChangeWarning)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/site-packages/torch/serialization.py:649: SourceChangeWarning: source code of class &#39;torch.nn.modules.container.Sequential&#39; has changed. you can retrieve the original source code by accessing the object&#39;s source attribute or set `torch.nn.Module.dump_patches = True` and use the patch tool to revert the changes.
-  warnings.warn(msg, SourceChangeWarning)
-/opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/site-packages/torch/serialization.py:649: SourceChangeWarning: source code of class &#39;torch.nn.modules.conv.Conv2d&#39; has changed. you can retrieve the original source code by accessing the object&#39;s source attribute or set `torch.nn.Module.dump_patches = True` and use the patch tool to revert the changes.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/site-packages/torch/serialization.py:649: SourceChangeWarning: source code of class &#39;torch.nn.modules.conv.Conv2d&#39; has changed. you can retrieve the original source code by accessing the object&#39;s source attribute or set `torch.nn.Module.dump_patches = True` and use the patch tool to revert the changes.
   warnings.warn(msg, SourceChangeWarning)
 /opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/site-packages/torch/serialization.py:649: SourceChangeWarning: source code of class &#39;torch.nn.modules.batchnorm.BatchNorm2d&#39; has changed. you can retrieve the original source code by accessing the object&#39;s source attribute or set `torch.nn.Module.dump_patches = True` and use the patch tool to revert the changes.
   warnings.warn(msg, SourceChangeWarning)
@@ -341,9 +341,25 @@ For more accurate results, try <code class="docutils literal notranslate"><span 
 INFO:__main__:batch 0: coco/000000188465.jpg
 </pre></div>
 </div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File &quot;/opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/runpy.py&quot;, line 193, in _run_module_as_main
+    &quot;__main__&quot;, mod_spec)
+  File &quot;/opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/runpy.py&quot;, line 85, in _run_code
+    exec(code, run_globals)
+  File &quot;/opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/site-packages/openpifpaf/predict.py&quot;, line 191, in &lt;module&gt;
+    main()
+  File &quot;/opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/site-packages/openpifpaf/predict.py&quot;, line 187, in main
+    annotation_painter.annotations(ax, pred)
+  File &quot;/opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/site-packages/openpifpaf/show/painters.py&quot;, line 43, in annotations
+    color=color, colors=this_colors, texts=this_texts, subtexts=this_subtexts)
+  File &quot;/opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/site-packages/openpifpaf/show/painters.py&quot;, line 384, in annotations
+    text = &#39;{:.0%}&#39;.format(ann.score())
+TypeError: unsupported format string passed to object.__format__
+</pre></div>
 </div>
 </div>
-<p><img alt="predicted" src="_images/000000188465.jpg.predictions.png" /><br />
+</div>
+<p><img alt="predicted" src="coco/000000188465.jpg.predictions.png" /><br />
 Image credit: <a class="reference external" href="https://www.flickr.com/photos/jelonekphotography/4593328722/">Photo</a> by Brian Jelonek shared under <a class="reference external" href="https://creativecommons.org/licenses/by/2.0/">CC-BY-2.0</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -354,9 +370,7 @@ Image credit: <a class="reference external" href="https://www.flickr.com/photos/
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/site-packages/torch/serialization.py:649: SourceChangeWarning: source code of class &#39;openpifpaf.network.nets.Shell&#39; has changed. you can retrieve the original source code by accessing the object&#39;s source attribute or set `torch.nn.Module.dump_patches = True` and use the patch tool to revert the changes.
   warnings.warn(msg, SourceChangeWarning)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/site-packages/torch/serialization.py:649: SourceChangeWarning: source code of class &#39;torch.nn.modules.container.Sequential&#39; has changed. you can retrieve the original source code by accessing the object&#39;s source attribute or set `torch.nn.Module.dump_patches = True` and use the patch tool to revert the changes.
+/opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/site-packages/torch/serialization.py:649: SourceChangeWarning: source code of class &#39;torch.nn.modules.container.Sequential&#39; has changed. you can retrieve the original source code by accessing the object&#39;s source attribute or set `torch.nn.Module.dump_patches = True` and use the patch tool to revert the changes.
   warnings.warn(msg, SourceChangeWarning)
 /opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/site-packages/torch/serialization.py:649: SourceChangeWarning: source code of class &#39;torch.nn.modules.conv.Conv2d&#39; has changed. you can retrieve the original source code by accessing the object&#39;s source attribute or set `torch.nn.Module.dump_patches = True` and use the patch tool to revert the changes.
   warnings.warn(msg, SourceChangeWarning)
@@ -378,9 +392,25 @@ Image credit: <a class="reference external" href="https://www.flickr.com/photos/
 INFO:__main__:batch 0: coco/000000114907.jpg
 </pre></div>
 </div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File &quot;/opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/runpy.py&quot;, line 193, in _run_module_as_main
+    &quot;__main__&quot;, mod_spec)
+  File &quot;/opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/runpy.py&quot;, line 85, in _run_code
+    exec(code, run_globals)
+  File &quot;/opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/site-packages/openpifpaf/predict.py&quot;, line 191, in &lt;module&gt;
+    main()
+  File &quot;/opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/site-packages/openpifpaf/predict.py&quot;, line 187, in main
+    annotation_painter.annotations(ax, pred)
+  File &quot;/opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/site-packages/openpifpaf/show/painters.py&quot;, line 43, in annotations
+    color=color, colors=this_colors, texts=this_texts, subtexts=this_subtexts)
+  File &quot;/opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/site-packages/openpifpaf/show/painters.py&quot;, line 384, in annotations
+    text = &#39;{:.0%}&#39;.format(ann.score())
+TypeError: unsupported format string passed to object.__format__
+</pre></div>
 </div>
 </div>
-<p><img alt="predicted" src="_images/000000114907.jpg.predictions.png" /><br />
+</div>
+<p><img alt="predicted" src="coco/000000114907.jpg.predictions.png" /><br />
 Image credit: <a class="reference external" href="https://www.flickr.com/photos/fortrucker/7825237468/">Photo</a> by Fort Rucker shared under <a class="reference external" href="https://creativecommons.org/licenses/by/2.0/">CC-BY-2.0</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -415,9 +445,25 @@ Image credit: <a class="reference external" href="https://www.flickr.com/photos/
 INFO:__main__:batch 0: coco/000000147740.jpg
 </pre></div>
 </div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File &quot;/opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/runpy.py&quot;, line 193, in _run_module_as_main
+    &quot;__main__&quot;, mod_spec)
+  File &quot;/opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/runpy.py&quot;, line 85, in _run_code
+    exec(code, run_globals)
+  File &quot;/opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/site-packages/openpifpaf/predict.py&quot;, line 191, in &lt;module&gt;
+    main()
+  File &quot;/opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/site-packages/openpifpaf/predict.py&quot;, line 187, in main
+    annotation_painter.annotations(ax, pred)
+  File &quot;/opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/site-packages/openpifpaf/show/painters.py&quot;, line 43, in annotations
+    color=color, colors=this_colors, texts=this_texts, subtexts=this_subtexts)
+  File &quot;/opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/site-packages/openpifpaf/show/painters.py&quot;, line 384, in annotations
+    text = &#39;{:.0%}&#39;.format(ann.score())
+TypeError: unsupported format string passed to object.__format__
+</pre></div>
 </div>
 </div>
-<p><img alt="predicted" src="_images/000000147740.jpg.predictions.png" /><br />
+</div>
+<p><img alt="predicted" src="coco/000000147740.jpg.predictions.png" /><br />
 Image credit: <a class="reference external" href="https://www.flickr.com/photos/cumidanciki/8026451116/">Photo</a> by CCFoodTravel.com shared under <a class="reference external" href="https://creativecommons.org/licenses/by/2.0/">CC-BY-2.0</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -436,9 +482,7 @@ Image credit: <a class="reference external" href="https://www.flickr.com/photos/
   warnings.warn(msg, SourceChangeWarning)
 /opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/site-packages/torch/serialization.py:649: SourceChangeWarning: source code of class &#39;torch.nn.modules.activation.ReLU&#39; has changed. you can retrieve the original source code by accessing the object&#39;s source attribute or set `torch.nn.Module.dump_patches = True` and use the patch tool to revert the changes.
   warnings.warn(msg, SourceChangeWarning)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/site-packages/torch/serialization.py:649: SourceChangeWarning: source code of class &#39;torch.nn.modules.container.ModuleList&#39; has changed. you can retrieve the original source code by accessing the object&#39;s source attribute or set `torch.nn.Module.dump_patches = True` and use the patch tool to revert the changes.
+/opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/site-packages/torch/serialization.py:649: SourceChangeWarning: source code of class &#39;torch.nn.modules.container.ModuleList&#39; has changed. you can retrieve the original source code by accessing the object&#39;s source attribute or set `torch.nn.Module.dump_patches = True` and use the patch tool to revert the changes.
   warnings.warn(msg, SourceChangeWarning)
 /opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/site-packages/torch/serialization.py:649: SourceChangeWarning: source code of class &#39;openpifpaf.network.heads.CompositeField3&#39; has changed. you can retrieve the original source code by accessing the object&#39;s source attribute or set `torch.nn.Module.dump_patches = True` and use the patch tool to revert the changes.
   warnings.warn(msg, SourceChangeWarning)
@@ -452,9 +496,25 @@ Image credit: <a class="reference external" href="https://www.flickr.com/photos/
 INFO:__main__:batch 0: coco/000000541055.jpg
 </pre></div>
 </div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File &quot;/opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/runpy.py&quot;, line 193, in _run_module_as_main
+    &quot;__main__&quot;, mod_spec)
+  File &quot;/opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/runpy.py&quot;, line 85, in _run_code
+    exec(code, run_globals)
+  File &quot;/opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/site-packages/openpifpaf/predict.py&quot;, line 191, in &lt;module&gt;
+    main()
+  File &quot;/opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/site-packages/openpifpaf/predict.py&quot;, line 187, in main
+    annotation_painter.annotations(ax, pred)
+  File &quot;/opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/site-packages/openpifpaf/show/painters.py&quot;, line 43, in annotations
+    color=color, colors=this_colors, texts=this_texts, subtexts=this_subtexts)
+  File &quot;/opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/site-packages/openpifpaf/show/painters.py&quot;, line 384, in annotations
+    text = &#39;{:.0%}&#39;.format(ann.score())
+TypeError: unsupported format string passed to object.__format__
+</pre></div>
 </div>
 </div>
-<p><img alt="predicted" src="_images/000000541055.jpg.predictions.png" /><br />
+</div>
+<p><img alt="predicted" src="coco/000000541055.jpg.predictions.png" /><br />
 Image credit: <a class="reference external" href="https://www.flickr.com/photos/12407269&#64;N07/3465325303/">Photo</a> by Jarrod Doll shared under <a class="reference external" href="https://creativecommons.org/licenses/by/2.0/">CC-BY-2.0</a>.</p>
 </div>
 
