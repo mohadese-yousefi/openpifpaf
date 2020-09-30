@@ -584,13 +584,13 @@ pose visualizer:
                                    [--shufflenetv2k-input-conv2-outchannels SHUFFLENETV2K_INPUT_CONV2_OUTCHANNELS]
                                    [--shufflenetv2k-stage4-dilation SHUFFLENETV2K_STAGE4_DILATION]
                                    [--shufflenetv2k-instance-norm | --shufflenetv2k-group-norm]
+                                   [--shufflenetv2-no-pretrain]
                                    [--resnet-no-pretrain]
                                    [--resnet-pool0-stride RESNET_POOL0_STRIDE]
                                    [--resnet-input-conv-stride RESNET_INPUT_CONV_STRIDE]
                                    [--resnet-input-conv2-stride RESNET_INPUT_CONV2_STRIDE]
                                    [--resnet-block5-dilation RESNET_BLOCK5_DILATION]
                                    [--resnet-remove-last-block]
-                                   [--shufflenetv2-no-pretrain]
                                    [--cf3-dropout CF3_DROPOUT]
                                    [--cf3-no-inplace-ops]
                                    [--checkpoint CHECKPOINT]
@@ -697,6 +697,10 @@ shufflenetv2k:
   --shufflenetv2k-instance-norm
   --shufflenetv2k-group-norm
 
+ShuffleNetv2:
+  --shufflenetv2-no-pretrain
+                        use randomly initialized models (default: True)
+
 ResNet:
   --resnet-no-pretrain  use randomly initialized models (default: True)
   --resnet-pool0-stride RESNET_POOL0_STRIDE
@@ -711,10 +715,6 @@ ResNet:
   --resnet-remove-last-block
                         create a network without the last block (default:
                         False)
-
-ShuffleNetv2:
-  --shufflenetv2-no-pretrain
-                        use randomly initialized models (default: True)
 
 CompositeField3:
   --cf3-dropout CF3_DROPOUT
@@ -934,10 +934,7 @@ optional arguments:
   -h, --help            show this help message and exit
   --version             show program&#39;s version number and exit
   -o OUTPUT, --output OUTPUT
-                        output 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>file (default: None)
+                        output file (default: None)
   --stride-apply STRIDE_APPLY
                         apply and reset gradients every n batches (default: 1)
   --epochs EPOCHS       number of epochs to train (default: 75)
