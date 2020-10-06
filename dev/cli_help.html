@@ -377,12 +377,12 @@
                                      [--resnet-input-conv2-stride RESNET_INPUT_CONV2_STRIDE]
                                      [--resnet-block5-dilation RESNET_BLOCK5_DILATION]
                                      [--resnet-remove-last-block]
-                                     [--shufflenetv2-no-pretrain]
                                      [--shufflenetv2k-input-conv2-stride SHUFFLENETV2K_INPUT_CONV2_STRIDE]
                                      [--shufflenetv2k-input-conv2-outchannels SHUFFLENETV2K_INPUT_CONV2_OUTCHANNELS]
                                      [--shufflenetv2k-stage4-dilation SHUFFLENETV2K_STAGE4_DILATION]
                                      [--shufflenetv2k-kernel SHUFFLENETV2K_KERNEL]
                                      [--shufflenetv2k-instance-norm | --shufflenetv2k-group-norm]
+                                     [--shufflenetv2-no-pretrain]
                                      [--cf3-dropout CF3_DROPOUT]
                                      [--cf3-no-inplace-ops]
                                      [--checkpoint CHECKPOINT]
@@ -494,10 +494,6 @@ ResNet:
                         create a network without the last block (default:
                         False)
 
-ShuffleNetv2:
-  --shufflenetv2-no-pretrain
-                        use randomly initialized models (default: True)
-
 shufflenetv2k:
   --shufflenetv2k-input-conv2-stride SHUFFLENETV2K_INPUT_CONV2_STRIDE
                         stride of the optional 2nd input convolution (default:
@@ -511,6 +507,10 @@ shufflenetv2k:
                         kernel width (default: 5)
   --shufflenetv2k-instance-norm
   --shufflenetv2k-group-norm
+
+ShuffleNetv2:
+  --shufflenetv2-no-pretrain
+                        use randomly initialized models (default: True)
 
 CompositeField3:
   --cf3-dropout CF3_DROPOUT
@@ -592,17 +592,18 @@ pose visualizer:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>usage: python3 -m openpifpaf.video [-h] [--version] [--resnet-no-pretrain]
-                                   [--resnet-pool0-stride RESNET_POOL0_STRIDE]
-                                   [--resnet-input-conv-stride RESNET_INPUT_CONV_STRIDE]
-                                   [--resnet-input-conv2-stride RESNET_INPUT_CONV2_STRIDE]
-                                   [--resnet-block5-dilation RESNET_BLOCK5_DILATION]
-                                   [--resnet-remove-last-block]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>usage: python3 -m openpifpaf.video [-h] [--version]
                                    [--shufflenetv2k-input-conv2-stride SHUFFLENETV2K_INPUT_CONV2_STRIDE]
                                    [--shufflenetv2k-input-conv2-outchannels SHUFFLENETV2K_INPUT_CONV2_OUTCHANNELS]
                                    [--shufflenetv2k-stage4-dilation SHUFFLENETV2K_STAGE4_DILATION]
                                    [--shufflenetv2k-kernel SHUFFLENETV2K_KERNEL]
                                    [--shufflenetv2k-instance-norm | --shufflenetv2k-group-norm]
+                                   [--resnet-no-pretrain]
+                                   [--resnet-pool0-stride RESNET_POOL0_STRIDE]
+                                   [--resnet-input-conv-stride RESNET_INPUT_CONV_STRIDE]
+                                   [--resnet-input-conv2-stride RESNET_INPUT_CONV2_STRIDE]
+                                   [--resnet-block5-dilation RESNET_BLOCK5_DILATION]
+                                   [--resnet-remove-last-block]
                                    [--shufflenetv2-no-pretrain]
                                    [--cf3-dropout CF3_DROPOUT]
                                    [--cf3-no-inplace-ops]
@@ -701,6 +702,20 @@ optional arguments:
                         left top right bottom (default: None)
   --rotate {left,right,180}
 
+shufflenetv2k:
+  --shufflenetv2k-input-conv2-stride SHUFFLENETV2K_INPUT_CONV2_STRIDE
+                        stride of the optional 2nd input convolution (default:
+                        0)
+  --shufflenetv2k-input-conv2-outchannels SHUFFLENETV2K_INPUT_CONV2_OUTCHANNELS
+                        out channels of the optional 2nd input convolution
+                        (default: None)
+  --shufflenetv2k-stage4-dilation SHUFFLENETV2K_STAGE4_DILATION
+                        dilation factor of stage 4 (default: 1)
+  --shufflenetv2k-kernel SHUFFLENETV2K_KERNEL
+                        kernel width (default: 5)
+  --shufflenetv2k-instance-norm
+  --shufflenetv2k-group-norm
+
 ResNet:
   --resnet-no-pretrain  use randomly initialized models (default: True)
   --resnet-pool0-stride RESNET_POOL0_STRIDE
@@ -715,20 +730,6 @@ ResNet:
   --resnet-remove-last-block
                         create a network without the last block (default:
                         False)
-
-shufflenetv2k:
-  --shufflenetv2k-input-conv2-stride SHUFFLENETV2K_INPUT_CONV2_STRIDE
-                        stride of the optional 2nd input convolution (default:
-                        0)
-  --shufflenetv2k-input-conv2-outchannels SHUFFLENETV2K_INPUT_CONV2_OUTCHANNELS
-                        out channels of the optional 2nd input convolution
-                        (default: None)
-  --shufflenetv2k-stage4-dilation SHUFFLENETV2K_STAGE4_DILATION
-                        dilation factor of stage 4 (default: 1)
-  --shufflenetv2k-kernel SHUFFLENETV2K_KERNEL
-                        kernel width (default: 5)
-  --shufflenetv2k-instance-norm
-  --shufflenetv2k-group-norm
 
 ShuffleNetv2:
   --shufflenetv2-no-pretrain
@@ -848,17 +849,18 @@ pose visualizer:
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>usage: python3 -m openpifpaf.train [-h] [--version] [-q] [--debug]
-                                   [--log-stats] [--resnet-no-pretrain]
-                                   [--resnet-pool0-stride RESNET_POOL0_STRIDE]
-                                   [--resnet-input-conv-stride RESNET_INPUT_CONV_STRIDE]
-                                   [--resnet-input-conv2-stride RESNET_INPUT_CONV2_STRIDE]
-                                   [--resnet-block5-dilation RESNET_BLOCK5_DILATION]
-                                   [--resnet-remove-last-block]
+                                   [--log-stats]
                                    [--shufflenetv2k-input-conv2-stride SHUFFLENETV2K_INPUT_CONV2_STRIDE]
                                    [--shufflenetv2k-input-conv2-outchannels SHUFFLENETV2K_INPUT_CONV2_OUTCHANNELS]
                                    [--shufflenetv2k-stage4-dilation SHUFFLENETV2K_STAGE4_DILATION]
                                    [--shufflenetv2k-kernel SHUFFLENETV2K_KERNEL]
                                    [--shufflenetv2k-instance-norm | --shufflenetv2k-group-norm]
+                                   [--resnet-no-pretrain]
+                                   [--resnet-pool0-stride RESNET_POOL0_STRIDE]
+                                   [--resnet-input-conv-stride RESNET_INPUT_CONV_STRIDE]
+                                   [--resnet-input-conv2-stride RESNET_INPUT_CONV2_STRIDE]
+                                   [--resnet-block5-dilation RESNET_BLOCK5_DILATION]
+                                   [--resnet-remove-last-block]
                                    [--shufflenetv2-no-pretrain]
                                    [--cf3-dropout CF3_DROPOUT]
                                    [--cf3-no-inplace-ops]
@@ -881,6 +883,7 @@ pose visualizer:
                                    [--caf-min-size CAF_MIN_SIZE]
                                    [--caf-fixed-size]
                                    [--caf-aspect-ratio CAF_ASPECT_RATIO]
+                                   [--encoder-no-suppress-selfhidden]
                                    [--momentum MOMENTUM] [--beta2 BETA2]
                                    [--adam-eps ADAM_EPS] [--no-nesterov]
                                    [--weight-decay WEIGHT_DECAY] [--adam]
@@ -987,6 +990,20 @@ logger:
   --debug               print debug messages (default: False)
   --log-stats           enable stats logging (default: False)
 
+shufflenetv2k:
+  --shufflenetv2k-input-conv2-stride SHUFFLENETV2K_INPUT_CONV2_STRIDE
+                        stride of the optional 2nd input convolution (default:
+                        0)
+  --shufflenetv2k-input-conv2-outchannels SHUFFLENETV2K_INPUT_CONV2_OUTCHANNELS
+                        out channels of the optional 2nd input convolution
+                        (default: None)
+  --shufflenetv2k-stage4-dilation SHUFFLENETV2K_STAGE4_DILATION
+                        dilation factor of stage 4 (default: 1)
+  --shufflenetv2k-kernel SHUFFLENETV2K_KERNEL
+                        kernel width (default: 5)
+  --shufflenetv2k-instance-norm
+  --shufflenetv2k-group-norm
+
 ResNet:
   --resnet-no-pretrain  use randomly initialized models (default: True)
   --resnet-pool0-stride RESNET_POOL0_STRIDE
@@ -1001,20 +1018,6 @@ ResNet:
   --resnet-remove-last-block
                         create a network without the last block (default:
                         False)
-
-shufflenetv2k:
-  --shufflenetv2k-input-conv2-stride SHUFFLENETV2K_INPUT_CONV2_STRIDE
-                        stride of the optional 2nd input convolution (default:
-                        0)
-  --shufflenetv2k-input-conv2-outchannels SHUFFLENETV2K_INPUT_CONV2_OUTCHANNELS
-                        out channels of the optional 2nd input convolution
-                        (default: None)
-  --shufflenetv2k-stage4-dilation SHUFFLENETV2K_STAGE4_DILATION
-                        dilation factor of stage 4 (default: 1)
-  --shufflenetv2k-kernel SHUFFLENETV2K_KERNEL
-                        kernel width (default: 5)
-  --shufflenetv2k-instance-norm
-  --shufflenetv2k-group-norm
 
 ShuffleNetv2:
   --shufflenetv2-no-pretrain
@@ -1066,16 +1069,16 @@ losses:
   --task-sparsity-weight TASK_SPARSITY_WEIGHT
                         [experimental] (default: 0.0)
 
-CIF encoder:
+encoders:
   --cif-side-length CIF_SIDE_LENGTH
                         side length of the CIF field (default: 4)
-
-CAF encoder:
   --caf-min-size CAF_MIN_SIZE
                         min side length of the CAF field (default: 3)
   --caf-fixed-size      fixed caf size (default: False)
   --caf-aspect-ratio CAF_ASPECT_RATIO
                         CAF width relative to its length (default: 0.0)
+  --encoder-no-suppress-selfhidden
+                        [experimental] (default: True)
 
 optimizer:
   --momentum MOMENTUM   SGD momentum, beta1 in Adam (default: 0.9)
