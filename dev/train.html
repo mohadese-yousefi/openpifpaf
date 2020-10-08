@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Training &#8212; OpenPifPaf Guide DEV</title>
     
-  <link rel="stylesheet" href="_static/css/index.d431a4ee1c1efae0e38bdfebc22debff.css">
+  <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
     
   <link rel="stylesheet"
@@ -25,7 +25,7 @@
     href="_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
-    <link rel="stylesheet" href="_static/sphinx-book-theme.bfb7730f9caf2ec0b46a44615585038c.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.2d2078699c18a0efb88233928e1cf6ed.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.30270b6e4c972e43c488.js">
+  <link rel="preload" as="script" href="_static/js/index.3da636dd464baa7582d2.js">
 
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -261,7 +261,8 @@
 
         <!-- Full screen (wrap in <a> to have style consistency -->
         <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
                     class="fas fa-expand"></i></button></a>
 
         <!-- Launch buttons -->
@@ -311,6 +312,11 @@
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#multiple-datasets">
    Multiple Datasets
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#overfitting">
+   Overfitting
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -374,6 +380,29 @@ line of the training log file. Below are a few examples for various backbones.</
 <p>OpenPifPaf supports simultaneous training on multiple datasets. You specify multiple datasets by concatenating them with a <code class="docutils literal notranslate"><span class="pre">-</span></code>, e.g. to train on COCO Keypoints <code class="docutils literal notranslate"><span class="pre">cocokp</span></code> and on COCO Detections <code class="docutils literal notranslate"><span class="pre">cocodet</span></code> you specify in your training command <code class="docutils literal notranslate"><span class="pre">--dataset=cocokp-cocodet</span></code>. This also works for custom datasets defined in plugins.</p>
 <p>The samples from each dataset are tracked with weighted counters and the dataset for the next batch is chosen by the lowest counter. You specify the dataset weights (or you can think of it as an importance), for example, as <code class="docutils literal notranslate"><span class="pre">--dataset-weights</span> <span class="pre">1.0</span> <span class="pre">0.5</span></code>. That means that the first dataset (<code class="docutils literal notranslate"><span class="pre">cocokp</span></code> in the above example) is twice as important as the second one (e.g. <code class="docutils literal notranslate"><span class="pre">cocodet</span></code>) and two-thirds of the batches will be from the first dataset and one-third will be from the second.</p>
 <p>An epoch is over once the first of the datasets is out of samples. As the datasets are randomized during training, a different set of samples will be used from epoch to epoch. That means that eventually all data will be utilized of the larger datasets even if not all data is used during a single epoch.</p>
+</div>
+<div class="section" id="overfitting">
+<h2>Overfitting<a class="headerlink" href="#overfitting" title="Permalink to this headline">¶</a></h2>
+<p>An effective way to validate the pipeline is working, loss functions are implemented correctly, encoders are correct, etc. is to overfit on a single image. You should be able to produce perfect predictions for that image. Some caveats: you need to deactivate augmentations, you must evaluate at the exact trained image size and the image should not contain crowd annotations (i.e. areas that will be ignored during training). Here is an example training command for a <code class="docutils literal notranslate"><span class="pre">cocokp</span></code> overfitting experiment:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">time</span> <span class="nv">CUDA_VISIBLE_DEVICES</span><span class="o">=</span><span class="m">1</span> python3 -m openpifpaf.train <span class="se">\</span>
+  --lr<span class="o">=</span><span class="m">0</span>.01 --momentum<span class="o">=</span><span class="m">0</span>.9 --b-scale<span class="o">=</span><span class="m">10</span>.0 <span class="se">\</span>
+  --epochs<span class="o">=</span><span class="m">1000</span> --lr-warm-up-epochs<span class="o">=</span><span class="m">100</span> <span class="se">\</span>
+  --batch-size<span class="o">=</span><span class="m">4</span> --train-batches<span class="o">=</span><span class="m">1</span> --val-batches<span class="o">=</span><span class="m">1</span> --val-interval<span class="o">=</span><span class="m">100</span> <span class="se">\</span>
+  --weight-decay<span class="o">=</span>1e-5 <span class="se">\</span>
+  --dataset<span class="o">=</span>cocokp --cocokp-upsample<span class="o">=</span><span class="m">2</span> --cocokp-no-augmentation <span class="se">\</span>
+  --basenet<span class="o">=</span>shufflenetv2k16
+</pre></div>
+</div>
+<p>The very first image in the training set has a large crowd annotation. Therefore, the above command overfits on four images.
+Here is the corresponding predict command for the <a class="reference external" href="https://www.flickr.com/photos/infiniteworld/5341741494/">second image</a> in the training set:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python3 -m openpifpaf.predict <span class="se">\</span>
+  --checkpoint outputs/shufflenetv2k16-201007-153356-cocokp-1de9503b.pkl <span class="se">\</span>
+  --debug-indices cif:5 caf:5 --debug-images --long-edge<span class="o">=</span><span class="m">385</span> --loader-workers<span class="o">=</span><span class="m">0</span> <span class="se">\</span>
+  --save-all --image-output all-images/overfitted.jpeg <span class="se">\</span>
+  data-mscoco/images/train2017/000000262146.jpg
+</pre></div>
+</div>
+<p>While the field predictions are almost perfect, it will predict two annotations while there is only one ground truth annotation. That is because the standard skeleton has no connection that goes directly from left-ear to nose and the left-eye is not visible and not annotated. You can add <code class="docutils literal notranslate"><span class="pre">--dense-connections</span></code> to include additional connections in the skeleton which will connect the nose keypoint to the rest of the skeleton.</p>
 </div>
 <div class="section" id="shufflenet">
 <h2>ShuffleNet<a class="headerlink" href="#shufflenet" title="Permalink to this headline">¶</a></h2>
@@ -510,7 +539,7 @@ checkpoints every 5 minutes:</p>
     </div>
 
     
-  <script src="_static/js/index.30270b6e4c972e43c488.js"></script>
+  <script src="_static/js/index.3da636dd464baa7582d2.js"></script>
 
 
     
