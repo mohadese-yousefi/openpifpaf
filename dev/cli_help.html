@@ -381,12 +381,9 @@ optional arguments:
   --loader-workers LOADER_WORKERS
                         number of workers for data loading (default: None)
   --disable-cuda        disable CUDA (default: False)
-  --line-width LINE_WIDTH
-                        line width for skeleton (default: 6)
-  --monocolor-connections
 
 decoder configuration:
-  --decoder {cifcaf,cifdet} [{cifcaf,cifdet} ...]
+  --decoder {cifdet,cifcaf} [{cifdet,cifcaf} ...]
                         Decoders to be considered. (default: None)
   --seed-threshold SEED_THRESHOLD
                         minimum threshold for seeds (default: 0.5)
@@ -433,6 +430,10 @@ ResNet:
                         create a network without the last block (default:
                         False)
 
+ShuffleNetv2:
+  --shufflenetv2-no-pretrain
+                        use randomly initialized models (default: True)
+
 shufflenetv2k:
   --shufflenetv2k-input-conv2-stride SHUFFLENETV2K_INPUT_CONV2_STRIDE
                         stride of the optional 2nd input convolution (default:
@@ -446,10 +447,6 @@ shufflenetv2k:
                         kernel width (default: 5)
   --shufflenetv2k-instance-norm
   --shufflenetv2k-group-norm
-
-ShuffleNetv2:
-  --shufflenetv2-no-pretrain
-                        use randomly initialized models (default: True)
 
 CompositeField3:
   --cf3-dropout CF3_DROPOUT
@@ -494,6 +491,11 @@ show:
                         minimum dpi of image output (default: 50.0)
   --show-file-extension SHOW_FILE_EXTENSION
                         default file extension (default: png)
+  --textbox-alpha TEXTBOX_ALPHA
+  --text-color TEXT_COLOR
+  --monocolor-connections
+  --line-width LINE_WIDTH
+  --skeleton-solid-threshold SKELETON_SOLID_THRESHOLD
   --show-box
   --white-overlay [WHITE_OVERLAY]
   --show-joint-scales
@@ -564,9 +566,6 @@ optional arguments:
   --horizontal-flip
   --long-edge LONG_EDGE
                         long edge of input images (default: None)
-  --line-width LINE_WIDTH
-                        line width for skeleton (default: 6)
-  --monocolor-connections
   --disable-cuda        disable CUDA (default: False)
   --scale SCALE         input image scale factor (default: 1.0)
   --start-frame START_FRAME
@@ -686,6 +685,11 @@ show:
                         minimum dpi of image output (default: 50.0)
   --show-file-extension SHOW_FILE_EXTENSION
                         default file extension (default: png)
+  --textbox-alpha TEXTBOX_ALPHA
+  --text-color TEXT_COLOR
+  --monocolor-connections
+  --line-width LINE_WIDTH
+  --skeleton-solid-threshold SKELETON_SOLID_THRESHOLD
   --show-box
   --white-overlay [WHITE_OVERLAY]
   --show-joint-scales
@@ -959,6 +963,11 @@ show:
                         minimum dpi of image output (default: 50.0)
   --show-file-extension SHOW_FILE_EXTENSION
                         default file extension (default: png)
+  --textbox-alpha TEXTBOX_ALPHA
+  --text-color TEXT_COLOR
+  --monocolor-connections
+  --line-width LINE_WIDTH
+  --skeleton-solid-threshold SKELETON_SOLID_THRESHOLD
   --show-box
   --white-overlay [WHITE_OVERLAY]
   --show-joint-scales
@@ -1081,7 +1090,7 @@ data module Cifar10:
   --cifar10-download
 
 decoder configuration:
-  --decoder {cifdet,cifcaf} [{cifdet,cifcaf} ...]
+  --decoder {cifcaf,cifdet} [{cifcaf,cifdet} ...]
                         Decoders to be considered. (default: None)
   --seed-threshold SEED_THRESHOLD
                         minimum threshold for seeds (default: 0.5)
@@ -1113,6 +1122,21 @@ logger:
   --debug               print debug messages (default: False)
   --log-stats           enable stats logging (default: False)
 
+ResNet:
+  --resnet-no-pretrain  use randomly initialized models (default: True)
+  --resnet-pool0-stride RESNET_POOL0_STRIDE
+                        stride of zero removes the pooling op (default: 0)
+  --resnet-input-conv-stride RESNET_INPUT_CONV_STRIDE
+                        stride of the input convolution (default: 2)
+  --resnet-input-conv2-stride RESNET_INPUT_CONV2_STRIDE
+                        stride of the optional 2nd input convolution (default:
+                        0)
+  --resnet-block5-dilation RESNET_BLOCK5_DILATION
+                        use dilated convs in block5 (default: 1)
+  --resnet-remove-last-block
+                        create a network without the last block (default:
+                        False)
+
 ShuffleNetv2:
   --shufflenetv2-no-pretrain
                         use randomly initialized models (default: True)
@@ -1130,21 +1154,6 @@ shufflenetv2k:
                         kernel width (default: 5)
   --shufflenetv2k-instance-norm
   --shufflenetv2k-group-norm
-
-ResNet:
-  --resnet-no-pretrain  use randomly initialized models (default: True)
-  --resnet-pool0-stride RESNET_POOL0_STRIDE
-                        stride of zero removes the pooling op (default: 0)
-  --resnet-input-conv-stride RESNET_INPUT_CONV_STRIDE
-                        stride of the input convolution (default: 2)
-  --resnet-input-conv2-stride RESNET_INPUT_CONV2_STRIDE
-                        stride of the optional 2nd input convolution (default:
-                        0)
-  --resnet-block5-dilation RESNET_BLOCK5_DILATION
-                        use dilated convs in block5 (default: 1)
-  --resnet-remove-last-block
-                        create a network without the last block (default:
-                        False)
 
 CompositeField3:
   --cf3-dropout CF3_DROPOUT
@@ -1189,6 +1198,11 @@ show:
                         minimum dpi of image output (default: 50.0)
   --show-file-extension SHOW_FILE_EXTENSION
                         default file extension (default: png)
+  --textbox-alpha TEXTBOX_ALPHA
+  --text-color TEXT_COLOR
+  --monocolor-connections
+  --line-width LINE_WIDTH
+  --skeleton-solid-threshold SKELETON_SOLID_THRESHOLD
   --show-box
   --white-overlay [WHITE_OVERLAY]
   --show-joint-scales
@@ -1373,6 +1387,11 @@ show:
                         minimum dpi of image output (default: 50.0)
   --show-file-extension SHOW_FILE_EXTENSION
                         default file extension (default: png)
+  --textbox-alpha TEXTBOX_ALPHA
+  --text-color TEXT_COLOR
+  --monocolor-connections
+  --line-width LINE_WIDTH
+  --skeleton-solid-threshold SKELETON_SOLID_THRESHOLD
   --show-box
   --white-overlay [WHITE_OVERLAY]
   --show-joint-scales

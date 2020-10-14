@@ -426,7 +426,7 @@ The API is for more advanced use cases. Please read <a class="reference internal
   <span class="n">data</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">pin_memory</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
   <span class="n">collate_fn</span><span class="o">=</span><span class="n">openpifpaf</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">collate_images_anns_meta</span><span class="p">)</span>
 
-<span class="n">keypoint_painter</span> <span class="o">=</span> <span class="n">openpifpaf</span><span class="o">.</span><span class="n">show</span><span class="o">.</span><span class="n">KeypointPainter</span><span class="p">(</span><span class="n">color_connections</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">annotation_painter</span> <span class="o">=</span> <span class="n">openpifpaf</span><span class="o">.</span><span class="n">show</span><span class="o">.</span><span class="n">AnnotationPainter</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -439,7 +439,7 @@ The API is for more advanced use cases. Please read <a class="reference internal
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">images_batch</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">__</span> <span class="ow">in</span> <span class="n">loader</span><span class="p">:</span>
   <span class="n">predictions</span> <span class="o">=</span> <span class="n">processor</span><span class="o">.</span><span class="n">batch</span><span class="p">(</span><span class="n">net</span><span class="p">,</span> <span class="n">images_batch</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
   <span class="k">with</span> <span class="n">openpifpaf</span><span class="o">.</span><span class="n">show</span><span class="o">.</span><span class="n">image_canvas</span><span class="p">(</span><span class="n">im</span><span class="p">)</span> <span class="k">as</span> <span class="n">ax</span><span class="p">:</span>
-    <span class="n">keypoint_painter</span><span class="o">.</span><span class="n">annotations</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">predictions</span><span class="p">)</span>
+    <span class="n">annotation_painter</span><span class="o">.</span><span class="n">annotations</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">predictions</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
