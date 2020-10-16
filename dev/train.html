@@ -339,6 +339,11 @@
    Detection (experimental)
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cloud-and-hpc">
+   Cloud and HPC
+  </a>
+ </li>
 </ul>
 
         </nav>
@@ -478,6 +483,42 @@ checkpoints every 5 minutes:</p>
 </pre></div>
 </div>
 <p>COCO AP=24.3% at epoch 90.</p>
+</div>
+<div class="section" id="cloud-and-hpc">
+<h2>Cloud and HPC<a class="headerlink" href="#cloud-and-hpc" title="Permalink to this headline">¶</a></h2>
+<p>OpenPifPaf can be trained on cloud infrastructure and in high performance computing (HPC) environments. We have good experience with the <a class="reference external" href="https://hub.docker.com/r/pytorch/pytorch/tags">pytorch/pytorch docker containers</a>. The <code class="docutils literal notranslate"><span class="pre">latest</span></code> tag does not include any development packages like <code class="docutils literal notranslate"><span class="pre">gcc</span></code>. For that, you need a “devel” package (e.g. <a class="reference external" href="https://hub.docker.com/layers/pytorch/pytorch/1.6.0-cuda10.1-cudnn7-devel/images/sha256-ccebb46f954b1d32a4700aaeae0e24bd68653f92c6f276a608bf592b660b63d7?context=explore">pytorch/1.6.0-cuda10.1-cudnn7-devel</a>).</p>
+<p>This is a development flow that worked well for us:</p>
+<ul class="simple">
+<li><p>start with an empty directory</p></li>
+<li><p>launch the “devel” container and bind/link your current empty directory</p></li>
+<li><p>create a Python virtualenv and install all software from within the devel container into the virtualenv</p></li>
+<li><p>never modify this virtualenv from the host, always from within the devel container</p></li>
+</ul>
+<p>After setting up your environment, you can execute the training. You can even use the container without the “devel” tools to submit the job.</p>
+<p><strong>HPC job submission</strong>: Our environment supports Slurm and Singularity. Run <code class="docutils literal notranslate"><span class="pre">sbatch</span> <span class="pre">./train.sh</span></code> with <code class="docutils literal notranslate"><span class="pre">train.sh</span></code> containing:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash -l</span>
+<span class="c1">#SBATCH --nodes 1</span>
+<span class="c1">#SBATCH --ntasks 1</span>
+<span class="c1">#SBATCH --cpus-per-task 40</span>
+<span class="c1">#SBATCH --mem 96G</span>
+<span class="c1">#SBATCH --time 06:00:00</span>
+<span class="c1">#SBATCH --account=&lt;your-account-name&gt;</span>
+<span class="c1">#SBATCH --gres gpu:2</span>
+
+srun singularity <span class="nb">exec</span> --bind &lt;make-host-dir-available&gt; --nv pytorch_latest.sif <span class="se">\</span>
+  /bin/bash -c <span class="se">\</span>
+  <span class="s2">&quot;source ./venv3/bin/activate;</span>
+<span class="s2">  python3 -u -m openpifpaf.train \</span>
+<span class="s2">    --lr=0.0001 --momentum=0.98 --b-scale=10.0 \</span>
+<span class="s2">    --epochs=150 \</span>
+<span class="s2">    --lr-decay 130 140 \</span>
+<span class="s2">    --lr-decay-epochs=10 \</span>
+<span class="s2">    --batch-size=32 --loader-workers=32 \</span>
+<span class="s2">    --weight-decay=1e-5 \</span>
+<span class="s2">    --dataset=cocokp --cocokp-upsample=2 \</span>
+<span class="s2">    --basenet=shufflenetv2k30&quot;</span>
+</pre></div>
+</div>
 </div>
 </div>
 
