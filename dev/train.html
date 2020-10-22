@@ -385,7 +385,7 @@ line of the training log file. Below are a few examples for various backbones.</
 <h2>Overfitting<a class="headerlink" href="#overfitting" title="Permalink to this headline">¶</a></h2>
 <p>An effective way to validate the pipeline is working, loss functions are implemented correctly, encoders are correct, etc. is to overfit on a single image. You should be able to produce perfect predictions for that image. Some caveats: you need to deactivate augmentations, you must evaluate at the exact trained image size and the image should not contain crowd annotations (i.e. areas that will be ignored during training). Here is an example training command for a <code class="docutils literal notranslate"><span class="pre">cocokp</span></code> overfitting experiment:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">time</span> <span class="nv">CUDA_VISIBLE_DEVICES</span><span class="o">=</span><span class="m">1</span> python3 -m openpifpaf.train <span class="se">\</span>
-  --lr<span class="o">=</span><span class="m">0</span>.01 --momentum<span class="o">=</span><span class="m">0</span>.9 --b-scale<span class="o">=</span><span class="m">10</span>.0 <span class="se">\</span>
+  --lr<span class="o">=</span><span class="m">0</span>.01 --momentum<span class="o">=</span><span class="m">0</span>.9 --b-scale<span class="o">=</span><span class="m">5</span>.0 <span class="se">\</span>
   --epochs<span class="o">=</span><span class="m">1000</span> --lr-warm-up-epochs<span class="o">=</span><span class="m">100</span> <span class="se">\</span>
   --batch-size<span class="o">=</span><span class="m">4</span> --train-batches<span class="o">=</span><span class="m">1</span> --val-batches<span class="o">=</span><span class="m">1</span> --val-interval<span class="o">=</span><span class="m">100</span> <span class="se">\</span>
   --weight-decay<span class="o">=</span>1e-5 <span class="se">\</span>
@@ -408,7 +408,7 @@ Here is the corresponding predict command for the <a class="reference external" 
 <h2>ShuffleNet<a class="headerlink" href="#shufflenet" title="Permalink to this headline">¶</a></h2>
 <p>ShuffleNet models are trained without ImageNet pretraining:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">time</span> <span class="nv">CUDA_VISIBLE_DEVICES</span><span class="o">=</span><span class="m">0</span>,1 python3 -m openpifpaf.train <span class="se">\</span>
-  --lr<span class="o">=</span><span class="m">0</span>.0001 --momentum<span class="o">=</span><span class="m">0</span>.98 --b-scale<span class="o">=</span><span class="m">10</span>.0 <span class="se">\</span>
+  --lr<span class="o">=</span><span class="m">0</span>.0001 --momentum<span class="o">=</span><span class="m">0</span>.98 --b-scale<span class="o">=</span><span class="m">5</span>.0 <span class="se">\</span>
   --epochs<span class="o">=</span><span class="m">150</span> <span class="se">\</span>
   --lr-decay <span class="m">130</span> <span class="m">140</span> <span class="se">\</span>
   --lr-decay-epochs<span class="o">=</span><span class="m">10</span> <span class="se">\</span>
@@ -422,7 +422,7 @@ Here is the corresponding predict command for the <a class="reference external" 
 <p>For improved performance, take the epoch150 checkpoint and train with
 extended-scale and 10% orientation invariance:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">time</span> <span class="nv">CUDA_VISIBLE_DEVICES</span><span class="o">=</span><span class="m">0</span>,1 python3 -m openpifpaf.train <span class="se">\</span>
-  --lr<span class="o">=</span><span class="m">0</span>.00005 --momentum<span class="o">=</span><span class="m">0</span>.98 --b-scale<span class="o">=</span><span class="m">10</span>.0 <span class="se">\</span>
+  --lr<span class="o">=</span><span class="m">0</span>.00005 --momentum<span class="o">=</span><span class="m">0</span>.98 --b-scale<span class="o">=</span><span class="m">5</span>.0 <span class="se">\</span>
   --epochs<span class="o">=</span><span class="m">250</span> <span class="se">\</span>
   --lr-warm-up-start-epoch<span class="o">=</span><span class="m">150</span> <span class="se">\</span>
   --lr-decay <span class="m">220</span> <span class="m">240</span> <span class="se">\</span>
@@ -472,7 +472,7 @@ checkpoints every 5 minutes:</p>
 <div class="section" id="detection-experimental">
 <h2>Detection (experimental)<a class="headerlink" href="#detection-experimental" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">time</span> <span class="nv">CUDA_VISIBLE_DEVICES</span><span class="o">=</span><span class="m">0</span>,1 python3 -m openpifpaf.train <span class="se">\</span>
-  --lr<span class="o">=</span><span class="m">0</span>.0003 --momentum<span class="o">=</span><span class="m">0</span>.98 --b-scale<span class="o">=</span><span class="m">10</span>.0 <span class="se">\</span>
+  --lr<span class="o">=</span><span class="m">0</span>.0003 --momentum<span class="o">=</span><span class="m">0</span>.98 --b-scale<span class="o">=</span><span class="m">5</span>.0 <span class="se">\</span>
   --epochs<span class="o">=</span><span class="m">150</span> <span class="se">\</span>
   --lr-decay <span class="m">130</span> <span class="m">140</span> <span class="se">\</span>
   --lr-decay-epochs<span class="o">=</span><span class="m">10</span> <span class="se">\</span>
@@ -497,7 +497,7 @@ checkpoints every 5 minutes:</p>
 <p>After setting up your environment, you can execute the training. You can even use the container without the “devel” tools to submit the job.</p>
 <p><strong>HPC job submission</strong>: Our environment supports <a class="reference external" href="https://slurm.schedmd.com/quickstart.html">Slurm</a> and <a class="reference external" href="https://sylabs.io/guides/3.6/user-guide/">Singularity</a>. Run</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sbatch ./train.sh <span class="se">\</span>
-  --lr<span class="o">=</span><span class="m">0</span>.0001 --momentum<span class="o">=</span><span class="m">0</span>.98 --b-scale<span class="o">=</span><span class="m">10</span>.0 <span class="se">\</span>
+  --lr<span class="o">=</span><span class="m">0</span>.0001 --momentum<span class="o">=</span><span class="m">0</span>.98 --b-scale<span class="o">=</span><span class="m">5</span>.0 <span class="se">\</span>
   --epochs<span class="o">=</span><span class="m">150</span> <span class="se">\</span>
   --lr-decay <span class="m">130</span> <span class="m">140</span> <span class="se">\</span>
   --lr-decay-epochs<span class="o">=</span><span class="m">10</span> <span class="se">\</span>
