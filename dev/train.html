@@ -513,12 +513,29 @@ checkpoints every 5 minutes:</p>
 <span class="c1">#SBATCH --ntasks 1</span>
 <span class="c1">#SBATCH --cpus-per-task 40</span>
 <span class="c1">#SBATCH --mem 96G</span>
-<span class="c1">#SBATCH --time 06:00:00</span>
+<span class="c1">#SBATCH --time 72:00:00</span>
 <span class="c1">#SBATCH --account=&lt;your-account-name&gt;</span>
 <span class="c1">#SBATCH --gres gpu:2</span>
 
 srun singularity <span class="nb">exec</span> --bind &lt;make-host-dir-available&gt; --nv pytorch_latest.sif <span class="se">\</span>
   /bin/bash -c <span class="s2">&quot;source ./venv3/bin/activate &amp;&amp; python3 -u -m openpifpaf.train </span><span class="k">$(</span><span class="nb">printf</span> <span class="s2">&quot;%s &quot;</span> <span class="s2">&quot;</span><span class="nv">$@</span><span class="s2">&quot;</span><span class="k">)</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+<p>Similarly, an <code class="docutils literal notranslate"><span class="pre">eval.sh</span></code> script might be run with <code class="docutils literal notranslate"><span class="pre">sbatch</span> <span class="pre">./eval.sh</span> <span class="pre">&quot;shufflenetv2k16-201023-163830-cocokp.pkl.epoch??[0,5]&quot;</span> <span class="pre">--batch-size=1</span> <span class="pre">--dataset=cocokp</span> <span class="pre">--skip-existing</span> <span class="pre">--loader-workers=2</span> <span class="pre">--force-complete-pose</span> <span class="pre">--seed-threshold=0.2</span></code> and look like this:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash -l</span>
+<span class="c1">#SBATCH --nodes 1</span>
+<span class="c1">#SBATCH --ntasks 1</span>
+<span class="c1">#SBATCH --cpus-per-task 20</span>
+<span class="c1">#SBATCH --mem 96G</span>
+<span class="c1">#SBATCH --time 06:00:00</span>
+<span class="c1">#SBATCH --account=&lt;your-account-name&gt;</span>
+<span class="c1">#SBATCH --gres gpu:1</span>
+
+<span class="nv">pattern</span><span class="o">=</span><span class="nv">$1</span>
+<span class="nb">shift</span>
+
+srun singularity <span class="nb">exec</span> --bind &lt;make-host-dir-available&gt; --nv pytorch_latest.sif <span class="se">\</span>
+  /bin/bash -c <span class="s2">&quot;source ./venv3/bin/activate &amp;&amp; find outputs/ -name \&quot;</span><span class="nv">$pattern</span><span class="s2">\&quot; -exec python3 -m openpifpaf.eval --checkpoint {} </span><span class="k">$(</span><span class="nb">printf</span> <span class="s2">&quot;%s &quot;</span> <span class="s2">&quot;</span><span class="nv">$@</span><span class="s2">&quot;</span><span class="k">)</span><span class="s2"> \;&quot;</span>
 </pre></div>
 </div>
 </div>
