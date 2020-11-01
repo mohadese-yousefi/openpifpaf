@@ -386,7 +386,7 @@ optional arguments:
   --disable-cuda        disable CUDA (default: False)
 
 decoder configuration:
-  --decoder {cifdet,cifcaf} [{cifdet,cifcaf} ...]
+  --decoder {cifcaf,cifdet} [{cifcaf,cifdet} ...]
                         Decoders to be considered. (default: None)
   --seed-threshold SEED_THRESHOLD
                         minimum threshold for seeds (default: 0.5)
@@ -586,6 +586,10 @@ optional arguments:
                         left top right bottom (default: None)
   --rotate {left,right,180}
 
+ShuffleNetv2:
+  --shufflenetv2-no-pretrain
+                        use randomly initialized models (default: True)
+
 shufflenetv2k:
   --shufflenetv2k-input-conv2-stride SHUFFLENETV2K_INPUT_CONV2_STRIDE
                         stride of the optional 2nd input convolution (default:
@@ -615,10 +619,6 @@ ResNet:
                         create a network without the last block (default:
                         False)
 
-ShuffleNetv2:
-  --shufflenetv2-no-pretrain
-                        use randomly initialized models (default: True)
-
 CompositeField3:
   --cf3-dropout CF3_DROPOUT
                         [experimental] zeroing probability of feature in head
@@ -645,7 +645,7 @@ network configuration:
                         (default: filter_and_extend)
 
 decoder configuration:
-  --decoder {cifdet,cifcaf} [{cifdet,cifcaf} ...]
+  --decoder {cifcaf,cifdet} [{cifcaf,cifdet} ...]
                         Decoders to be considered. (default: None)
   --seed-threshold SEED_THRESHOLD
                         minimum threshold for seeds (default: 0.5)
@@ -776,6 +776,10 @@ logger:
   --debug               print debug messages (default: False)
   --log-stats           enable stats logging (default: False)
 
+ShuffleNetv2:
+  --shufflenetv2-no-pretrain
+                        use randomly initialized models (default: True)
+
 shufflenetv2k:
   --shufflenetv2k-input-conv2-stride SHUFFLENETV2K_INPUT_CONV2_STRIDE
                         stride of the optional 2nd input convolution (default:
@@ -786,10 +790,7 @@ shufflenetv2k:
   --shufflenetv2k-stage4-dilation SHUFFLENETV2K_STAGE4_DILATION
                         dilation factor of stage 4 (default: 1)
   --shufflenetv2k-kernel SHUFFLENETV2K_KERNEL
-        
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                kernel width (default: 5)
+                        kernel width (default: 5)
   --shufflenetv2k-instance-norm
   --shufflenetv2k-group-norm
 
@@ -807,10 +808,6 @@ ResNet:
   --resnet-remove-last-block
                         create a network without the last block (default:
                         False)
-
-ShuffleNetv2:
-  --shufflenetv2-no-pretrain
-                        use randomly initialized models (default: True)
 
 CompositeField3:
   --cf3-dropout CF3_DROPOUT
@@ -1114,7 +1111,7 @@ data module Cifar10:
   --cifar10-download
 
 decoder configuration:
-  --decoder {cifdet,cifcaf} [{cifdet,cifcaf} ...]
+  --decoder {cifcaf,cifdet} [{cifcaf,cifdet} ...]
                         Decoders to be considered. (default: None)
   --seed-threshold SEED_THRESHOLD
                         minimum threshold for seeds (default: 0.5)
@@ -1153,6 +1150,10 @@ logger:
   --debug               print debug messages (default: False)
   --log-stats           enable stats logging (default: False)
 
+ShuffleNetv2:
+  --shufflenetv2-no-pretrain
+                        use randomly initialized models (default: True)
+
 shufflenetv2k:
   --shufflenetv2k-input-conv2-stride SHUFFLENETV2K_INPUT_CONV2_STRIDE
                         stride of the optional 2nd input convolution (default:
@@ -1182,10 +1183,6 @@ ResNet:
                         create a network without the last block (default:
                         False)
 
-ShuffleNetv2:
-  --shufflenetv2-no-pretrain
-                        use randomly initialized models (default: True)
-
 CompositeField3:
   --cf3-dropout CF3_DROPOUT
                         [experimental] zeroing probability of feature in head
@@ -1207,7 +1204,10 @@ network configuration:
   --no-download-progress
                         suppress model download progress bar (default: True)
   --head-consolidation {keep,create,filter_and_extend}
-                        consolidation strategy for a checkpoint&#39;s head
+                        consolida
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tion strategy for a checkpoint&#39;s head
                         networks and the heads specified by the datamodule
                         (default: filter_and_extend)
 
