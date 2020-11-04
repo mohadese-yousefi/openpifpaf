@@ -25,8 +25,8 @@
     href="_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
-    <link rel="stylesheet" href="_static/sphinx-book-theme.2d2078699c18a0efb88233928e1cf6ed.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.2d2078699c18a0efb88233928e1cf6ed.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -386,7 +386,7 @@ optional arguments:
   --disable-cuda        disable CUDA (default: False)
 
 decoder configuration:
-  --decoder {cifcaf,cifdet} [{cifcaf,cifdet} ...]
+  --decoder {cifdet,cifcaf} [{cifdet,cifcaf} ...]
                         Decoders to be considered. (default: None)
   --seed-threshold SEED_THRESHOLD
                         minimum threshold for seeds (default: 0.5)
@@ -425,21 +425,6 @@ logger:
   --debug               print debug messages (default: False)
   --log-stats           enable stats logging (default: False)
 
-ResNet:
-  --resnet-no-pretrain  use randomly initialized models (default: True)
-  --resnet-pool0-stride RESNET_POOL0_STRIDE
-                        stride of zero removes the pooling op (default: 0)
-  --resnet-input-conv-stride RESNET_INPUT_CONV_STRIDE
-                        stride of the input convolution (default: 2)
-  --resnet-input-conv2-stride RESNET_INPUT_CONV2_STRIDE
-                        stride of the optional 2nd input convolution (default:
-                        0)
-  --resnet-block5-dilation RESNET_BLOCK5_DILATION
-                        use dilated convs in block5 (default: 1)
-  --resnet-remove-last-block
-                        create a network without the last block (default:
-                        False)
-
 ShuffleNetv2:
   --shufflenetv2-no-pretrain
                         use randomly initialized models (default: True)
@@ -457,6 +442,21 @@ shufflenetv2k:
                         kernel width (default: 5)
   --shufflenetv2k-instance-norm
   --shufflenetv2k-group-norm
+
+ResNet:
+  --resnet-no-pretrain  use randomly initialized models (default: True)
+  --resnet-pool0-stride RESNET_POOL0_STRIDE
+                        stride of zero removes the pooling op (default: 0)
+  --resnet-input-conv-stride RESNET_INPUT_CONV_STRIDE
+                        stride of the input convolution (default: 2)
+  --resnet-input-conv2-stride RESNET_INPUT_CONV2_STRIDE
+                        stride of the optional 2nd input convolution (default:
+                        0)
+  --resnet-block5-dilation RESNET_BLOCK5_DILATION
+                        use dilated convs in block5 (default: 1)
+  --resnet-remove-last-block
+                        create a network without the last block (default:
+                        False)
 
 CompositeField3:
   --cf3-dropout CF3_DROPOUT
@@ -586,21 +586,6 @@ optional arguments:
                         left top right bottom (default: None)
   --rotate {left,right,180}
 
-ResNet:
-  --resnet-no-pretrain  use randomly initialized models (default: True)
-  --resnet-pool0-stride RESNET_POOL0_STRIDE
-                        stride of zero removes the pooling op (default: 0)
-  --resnet-input-conv-stride RESNET_INPUT_CONV_STRIDE
-                        stride of the input convolution (default: 2)
-  --resnet-input-conv2-stride RESNET_INPUT_CONV2_STRIDE
-                        stride of the optional 2nd input convolution (default:
-                        0)
-  --resnet-block5-dilation RESNET_BLOCK5_DILATION
-                        use dilated convs in block5 (default: 1)
-  --resnet-remove-last-block
-                        create a network without the last block (default:
-                        False)
-
 ShuffleNetv2:
   --shufflenetv2-no-pretrain
                         use randomly initialized models (default: True)
@@ -618,6 +603,21 @@ shufflenetv2k:
                         kernel width (default: 5)
   --shufflenetv2k-instance-norm
   --shufflenetv2k-group-norm
+
+ResNet:
+  --resnet-no-pretrain  use randomly initialized models (default: True)
+  --resnet-pool0-stride RESNET_POOL0_STRIDE
+                        stride of zero removes the pooling op (default: 0)
+  --resnet-input-conv-stride RESNET_INPUT_CONV_STRIDE
+                        stride of the input convolution (default: 2)
+  --resnet-input-conv2-stride RESNET_INPUT_CONV2_STRIDE
+                        stride of the optional 2nd input convolution (default:
+                        0)
+  --resnet-block5-dilation RESNET_BLOCK5_DILATION
+                        use dilated convs in block5 (default: 1)
+  --resnet-remove-last-block
+                        create a network without the last block (default:
+                        False)
 
 CompositeField3:
   --cf3-dropout CF3_DROPOUT
@@ -645,7 +645,7 @@ network configuration:
                         (default: filter_and_extend)
 
 decoder configuration:
-  --decoder {cifcaf,cifdet} [{cifcaf,cifdet} ...]
+  --decoder {cifdet,cifcaf} [{cifdet,cifcaf} ...]
                         Decoders to be considered. (default: None)
   --seed-threshold SEED_THRESHOLD
                         minimum threshold for seeds (default: 0.5)
@@ -776,21 +776,6 @@ logger:
   --debug               print debug messages (default: False)
   --log-stats           enable stats logging (default: False)
 
-ResNet:
-  --resnet-no-pretrain  use randomly initialized models (default: True)
-  --resnet-pool0-stride RESNET_POOL0_STRIDE
-                        stride of zero removes the pooling op (default: 0)
-  --resnet-input-conv-stride RESNET_INPUT_CONV_STRIDE
-                        stride of the input convolution (default: 2)
-  --resnet-input-conv2-stride RESNET_INPUT_CONV2_STRIDE
-                        stride of the optional 2nd input convolution (default:
-                        0)
-  --resnet-block5-dilation RESNET_BLOCK5_DILATION
-                        use dilated convs in block5 (default: 1)
-  --resnet-remove-last-block
-                        create a network without the last block (default:
-                        False)
-
 ShuffleNetv2:
   --shufflenetv2-no-pretrain
                         use randomly initialized models (default: True)
@@ -808,6 +793,21 @@ shufflenetv2k:
                         kernel width (default: 5)
   --shufflenetv2k-instance-norm
   --shufflenetv2k-group-norm
+
+ResNet:
+  --resnet-no-pretrain  use randomly initialized models (default: True)
+  --resnet-pool0-stride RESNET_POOL0_STRIDE
+                        stride of zero removes the pooling op (default: 0)
+  --resnet-input-conv-stride RESNET_INPUT_CONV_STRIDE
+                        stride of the input convolution (default: 2)
+  --resnet-input-conv2-stride RESNET_INPUT_CONV2_STRIDE
+                        stride of the optional 2nd input convolution (default:
+                        0)
+  --resnet-block5-dilation RESNET_BLOCK5_DILATION
+                        use dilated convs in block5 (default: 1)
+  --resnet-remove-last-block
+                        create a network without the last block (default:
+                        False)
 
 CompositeField3:
   --cf3-dropout CF3_DROPOUT
@@ -1039,6 +1039,7 @@ optional arguments:
   --skip-existing       skip if output eval file exists already (default:
                         False)
   --no-skip-epoch0      do not skip eval for epoch 0 (default: True)
+  --watch [WATCH]
   --disable-cuda        disable CUDA (default: False)
   --write-predictions   write a json and a zip file of the predictions
                         (default: False)
@@ -1111,15 +1112,12 @@ data module Cifar10:
   --cifar10-download
 
 decoder configuration:
-  --decoder {cifcaf,cifdet} [{cifcaf,cifdet} ...]
+  --decoder {cifdet,cifcaf} [{cifdet,cifcaf} ...]
                         Decoders to be considered. (default: None)
   --seed-threshold SEED_THRESHOLD
                         minimum threshold for seeds (default: 0.5)
   --instance-threshold INSTANCE_THRESHOLD
-                        filt
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>er instances by score (default: 0.0)
+                        filter instances by score (default: 0.0)
   --decoder-workers DECODER_WORKERS
                         number of workers for pose decoding (default: None)
   --caf-seeds           [experimental] (default: False)
@@ -1153,21 +1151,6 @@ logger:
   --debug               print debug messages (default: False)
   --log-stats           enable stats logging (default: False)
 
-ResNet:
-  --resnet-no-pretrain  use randomly initialized models (default: True)
-  --resnet-pool0-stride RESNET_POOL0_STRIDE
-                        stride of zero removes the pooling op (default: 0)
-  --resnet-input-conv-stride RESNET_INPUT_CONV_STRIDE
-                        stride of the input convolution (default: 2)
-  --resnet-input-conv2-stride RESNET_INPUT_CONV2_STRIDE
-                        stride of the optional 2nd input convolution (default:
-                        0)
-  --resnet-block5-dilation RESNET_BLOCK5_DILATION
-                        use dilated convs in block5 (default: 1)
-  --resnet-remove-last-block
-                        create a network without the last block (default:
-                        False)
-
 ShuffleNetv2:
   --shufflenetv2-no-pretrain
                         use randomly initialized models (default: True)
@@ -1185,6 +1168,21 @@ shufflenetv2k:
                         kernel width (default: 5)
   --shufflenetv2k-instance-norm
   --shufflenetv2k-group-norm
+
+ResNet:
+  --resnet-no-pretrain  use randomly initialized models (default: True)
+  --resnet-pool0-stride RESNET_POOL0_STRIDE
+                        stride of zero removes the pooling op (default: 0)
+  --resnet-input-conv-stride RESNET_INPUT_CONV_STRIDE
+                        stride of the input convolution (default: 2)
+  --resnet-input-conv2-stride RESNET_INPUT_CONV2_STRIDE
+                        stride of the optional 2nd input convolution (default:
+                        0)
+  --resnet-block5-dilation RESNET_BLOCK5_DILATION
+                        use dilated convs in block5 (default: 1)
+  --resnet-remove-last-block
+                        create a network without the last block (default:
+                        False)
 
 CompositeField3:
   --cf3-dropout CF3_DROPOUT
